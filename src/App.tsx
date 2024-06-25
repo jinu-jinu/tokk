@@ -15,7 +15,7 @@ const App = () => {
         lerp: 0.05,
         wheelMultiplier: 0.7,
         syncTouch: true,
-        touchMultiplier: 1,
+        touchMultiplier: 0.7,
         touchInertiaMultiplier: 30,
       }}
     >
