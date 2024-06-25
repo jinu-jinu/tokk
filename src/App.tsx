@@ -16,6 +16,7 @@ const App = () => {
         lerp: 0.05,
         wheelMultiplier: 0.7,
         syncTouch: true,
+        touchMultiplier: 0.7,
       }}
     >
       <div className="w-full min-h-[100dvh]">
