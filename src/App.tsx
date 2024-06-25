@@ -16,7 +16,7 @@ const App = () => {
         lerp: 0.05,
         wheelMultiplier: 0.7,
         syncTouch: true,
-        touchMultiplier: 0.7,
+        touchMultiplier: 0.1,
       }}
     >
       <div className="w-full min-h-[100dvh]">
@@ -62,7 +62,14 @@ const App = () => {
         </div>
 
         <Canvas
-          style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0, overflow: "hidden" }}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100dvh",
+            overflow: "hidden",
+          }}
           eventSource={document.getElementById("root")!}
         >
           <View.Port />
