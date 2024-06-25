@@ -6,6 +6,7 @@ export type AssetTextureType = {
   color2: Texture;
   color3: Texture;
   bump: Texture;
+  tap: Texture;
 };
 
 export type CanChangeStoreType = {

@@ -20,9 +20,6 @@ const CustomMaterial = ({
     uTex2: {
       value: Texture;
     };
-    uDirection: {
-      value: boolean;
-    };
   };
 }) => {
   // useEffect(() => {

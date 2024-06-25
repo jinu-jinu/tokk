@@ -1,6 +1,5 @@
 import { Preload, View } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Perf } from "r3f-perf";
 import ReactLenis from "lenis/react";
 import Header from "./UI/header/Header";
 import Section1 from "./UI/section1/Section1";
@@ -8,7 +7,6 @@ import Background from "./components/Background";
 import Wave from "./components/Wave";
 import Flowfield from "./components/FlowField/FlowField";
 import CustomCamera from "./UI/section1/CustomCamera";
-import Decorations from "./UI/common/Decorations";
 
 const App = () => {
   return (

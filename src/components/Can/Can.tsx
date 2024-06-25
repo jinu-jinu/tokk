@@ -31,7 +31,6 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
       uProgress: { value: 0 },
       uTex1: { value: textureMapping[current.current] },
       uTex2: { value: textureMapping[next.current] },
-      uTime: { value: 0 },
     }),
     []
   );

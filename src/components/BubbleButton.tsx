@@ -37,7 +37,7 @@ const BubbleButton = () => {
       }
     );
 
-    animation.onfinish = (e) => {
+    animation.onfinish = () => {
       particle.remove();
     };
   };
