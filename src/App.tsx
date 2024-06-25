@@ -13,8 +13,9 @@ const App = () => {
     <ReactLenis
       root
       options={{
-        lerp: 0.03,
-        wheelMultiplier: 1,
+        lerp: 0.05,
+        wheelMultiplier: 0.7,
+        syncTouch: true,
       }}
     >
       <div className="w-full min-h-[100dvh]">
