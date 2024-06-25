@@ -2,8 +2,7 @@ import { View } from "@react-three/drei";
 
 import Experience from "./Experience";
 import Titles from "./Titles";
-import CircularText from "../../components/CircularText";
-import Stickers from "./Stickers";
+import Wave from "../../components/Wave";
 
 const Section1 = () => {
   return (
@@ -12,9 +11,10 @@ const Section1 = () => {
         <Experience />
       </View>
       <Titles />
-      <Stickers />
+      {/* <Stickers /> */}
 
-      <CircularText />
+      {/* <CircularText /> */}
+      <Wave />
     </section>
   );
 };

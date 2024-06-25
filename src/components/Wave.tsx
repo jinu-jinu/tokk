@@ -11,7 +11,11 @@ const Wave = () => {
     "M 0 300 C 500 550 1000 300 1000 300 C 1500 50 2000 200 2000 200 L 2000 1000 L 0 1000 Z";
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 600">
+    <svg
+      className="absolute bottom-0 left-0"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 2000 600"
+    >
       <motion.path
         animate={{
           d: [start1, end1, start1],
