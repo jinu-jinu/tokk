@@ -5,7 +5,7 @@ import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
 import { useCanChangeActions } from "../../store/CanChangeStore";
 import { AssetTextureType } from "../../types";
-import { animate } from "framer-motion";
+import { animate, useMotionValueEvent, useScroll } from "framer-motion";
 import { Group, Material, Mesh } from "three";
 import { useFrame } from "@react-three/fiber";
 
@@ -47,6 +47,19 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
     tapMesh.current.position.setY((viewport.height / 3) * 0.9);
 
     tapMesh.current.matrixWorldNeedsUpdate = true;
+  });
+
+  const scrollRef = useRef<Group>(null!);
+
+  const { scrollYProgress } = useScroll({
+    offset: ["0vh", "100vh"],
+  });
+
+  const defaultSCrollY = -2;
+  useMotionValueEvent(scrollYProgress, "change", (e) => {
+    if (!scrollRef.current) return;
+
+    scrollRef.current.position.setY(defaultSCrollY - e * 3);
   });
 
   return (
@@ -104,7 +117,7 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
         <meshStandardMaterial map={textures.tap} roughness={1} transparent opacity={1} />
       </mesh>
       {/* 스크롤 그룹 */}
-      <group dispose={null} position={[0, -2, 0]}>
+      <group ref={scrollRef} dispose={null} position={[0, -2, 0]}>
         <group>
           <Environment preset="city" background={false} environmentIntensity={1.2} />
           <directionalLight position={[-1, 3, 4]} intensity={1.2} />
