@@ -2,6 +2,7 @@ import { View } from "@react-three/drei";
 import Flowfield from "../../components/FlowField/FlowField";
 import CustomCamera from "../section1/CustomCamera";
 import { useRef } from "react";
+import Texts from "./Texts";
 
 const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
@@ -19,6 +20,7 @@ const Section2 = () => {
       }}
     >
       <div className="sticky top-0 left-0 w-full h-[100dvh]">
+        <Texts />
         <View className="w-full h-full">
           <Flowfield />
           <CustomCamera />
