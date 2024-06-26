@@ -5,6 +5,7 @@ import Title from "./Title";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import RevealParagraph from "./RevealParagraph";
+import Wave from "../../components/Wave";
 
 const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
@@ -24,7 +25,15 @@ const Section2 = () => {
         flexDirection: "column",
       }}
     >
-      <div className="sticky z-10 top-0 left-0 w-full h-[100dvh] bg-[rgba(255,255,255,.2)]">
+      <div
+        style={{
+          rotate: "180deg",
+        }}
+        className="absolute top-0 left-0 w-full h-full"
+      >
+        <Wave />
+      </div>
+      <div className="sticky z-10 top-0 left-0 w-full h-[100dvh]">
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
           <Title />
           <RevealParagraph scroll={scrollYProgress} />
