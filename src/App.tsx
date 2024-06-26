@@ -9,7 +9,14 @@ import Section3 from "./UI/section3/Section3";
 import { useEffect } from "react";
 
 const SmoothScroll = ({ children }: { children: JSX.Element }) => {
-  const lenis = new Lenis({});
+  const lenis = new Lenis({
+    smoothWheel: true,
+    syncTouch: true,
+    lerp: 0.03,
+    wheelMultiplier: 0.3,
+    syncTouchLerp: 0.03,
+    touchMultiplier: 0.3,
+  });
 
   useEffect(() => {
     const raf = (cb: any) => {
