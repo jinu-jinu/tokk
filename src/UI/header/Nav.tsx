@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 
 const NavItem = ({ children, itemName }: { children: ReactNode; itemName: string }) => {
   return (
@@ -12,7 +12,7 @@ const NavItem = ({ children, itemName }: { children: ReactNode; itemName: string
   );
 };
 
-const Nav = ({ subColor }: { subColor: string }) => {
+const Nav = ({ subColor }: { subColor: MotionValue<string> }) => {
   return (
     <motion.nav
       style={{
