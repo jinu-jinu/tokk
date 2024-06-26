@@ -25,15 +25,7 @@ const Section2 = () => {
         flexDirection: "column",
       }}
     >
-      <div
-        style={{
-          rotate: "180deg",
-        }}
-        className="absolute top-0 left-0 w-full h-full"
-      >
-        <Wave />
-      </div>
-      <div className="sticky z-10 top-0 left-0 w-full h-[100dvh]">
+      <div className="sticky z-10 top-0 left-0 w-full h-[100dvh] bg-noise bg-fixed">
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
           <Title />
           <RevealParagraph scroll={scrollYProgress} />
