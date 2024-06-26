@@ -4,7 +4,7 @@ import ReactLenis from "lenis/react";
 import Header from "./UI/header/Header";
 import Section1 from "./UI/section1/Section1";
 import Background from "./components/Background";
-// import Section2 from "./UI/section2/Section2";
+import Section2 from "./UI/section2/Section2";
 import Section3 from "./UI/section3/Section3";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
         <Background />
         <Header />
         <Section1 />
-        {/* <Section2 /> */}
+        <Section2 />
         <Section3 />
 
         <Canvas

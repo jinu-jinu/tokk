@@ -1,7 +1,7 @@
 import { View } from "@react-three/drei";
 import Flowfield from "../../components/FlowField/FlowField";
 import CustomCamera from "../section1/CustomCamera";
-import Title from "./Title";
+// import Title from "./Title";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import RevealParagraph from "./RevealParagraph";
@@ -27,7 +27,7 @@ const Section2 = () => {
     >
       <div className="sticky top-0 left-0 w-full h-[100vh]">
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
-          <Title />
+          {/* <Title /> */}
           <RevealParagraph scroll={scrollYProgress} />
         </div>
         <View className="w-full h-full">
