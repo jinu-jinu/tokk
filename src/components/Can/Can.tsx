@@ -69,7 +69,7 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
       <mesh
-        position={[0, 1, 0]}
+        position={[0, 2, 0]}
         ref={tapMesh}
         onPointerOver={(e) => {
           if (!tapMesh.current) return;
