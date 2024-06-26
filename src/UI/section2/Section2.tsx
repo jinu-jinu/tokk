@@ -5,7 +5,6 @@ import Title from "./Title";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import RevealParagraph from "./RevealParagraph";
-import Wave from "../../components/Wave";
 
 const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
