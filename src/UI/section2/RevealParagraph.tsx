@@ -1,6 +1,6 @@
 import { MotionValue, motion, useTransform } from "framer-motion";
 import { revealParagraph } from "../../contents/content";
-import useColor from "../../hooks/useColor";
+// import useColor from "../../hooks/useColor";
 
 const Letter = ({
   word,
@@ -24,12 +24,12 @@ const Letter = ({
 const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
   const paragraph = revealParagraph;
   const len = paragraph.length;
-  const { subColor } = useColor();
+  // const { subColor } = useColor();
 
   return (
     <motion.div
       style={{
-        color: subColor,
+        color: "#fff",
       }}
       className="flex-[0.7] w-full max-w-[60vmax]"
     >
