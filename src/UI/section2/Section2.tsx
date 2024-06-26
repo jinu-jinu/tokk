@@ -21,7 +21,7 @@ const Section2 = () => {
         width: "100%",
         height: "500vh",
         display: "flex",
-        backgroundColor: "rgba(255,255,255,.1)",
+        backgroundColor: "rgba(255,255,255,.2)",
         flexDirection: "column",
       }}
     >
