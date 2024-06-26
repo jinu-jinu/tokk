@@ -1,4 +1,3 @@
-import { MotionValue } from "framer-motion";
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
@@ -13,9 +12,14 @@ const NavItem = ({ children, itemName }: { children: ReactNode; itemName: string
   );
 };
 
-const Nav = ({ subColor }: { subColor: MotionValue<string> }) => {
+const Nav = ({ subColor }: { subColor: string }) => {
   return (
-    <nav className={`text-[${subColor}] hidden lg:flex`}>
+    <motion.nav
+      style={{
+        color: subColor,
+      }}
+      className={`hidden lg:flex`}
+    >
       <NavItem itemName="CONTACT">
         <svg
           width="24px"
@@ -53,7 +57,7 @@ const Nav = ({ subColor }: { subColor: MotionValue<string> }) => {
           />
         </svg>
       </NavItem>
-    </nav>
+    </motion.nav>
   );
 };
 
