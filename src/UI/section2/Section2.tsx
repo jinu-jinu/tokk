@@ -21,10 +21,11 @@ const Section2 = () => {
         width: "100%",
         height: "500vh",
         display: "flex",
+        backgroundColor: "rgba(255,255,255,.1)",
         flexDirection: "column",
       }}
     >
-      <div className="sticky z-10 top-0 left-0 w-full h-[100dvh] bg-noise bg-fixed">
+      <div className="sticky top-0 left-0 w-full h-[100vh]">
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
           <Title />
           <RevealParagraph scroll={scrollYProgress} />
