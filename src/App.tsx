@@ -13,9 +13,9 @@ const SmoothScroll = ({ children }: { children: JSX.Element }) => {
     smoothWheel: true,
     syncTouch: true,
     lerp: 0.03,
-    wheelMultiplier: 0.3,
+    wheelMultiplier: 0.5,
     syncTouchLerp: 0.03,
-    touchMultiplier: 0.3,
+    touchMultiplier: 0.5,
   });
 
   useEffect(() => {
