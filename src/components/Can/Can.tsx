@@ -31,6 +31,7 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
       uProgress: { value: 0 },
       uTex1: { value: textureMapping[current.current] },
       uTex2: { value: textureMapping[next.current] },
+      uTime: { value: 0 },
     }),
     []
   );
@@ -38,7 +39,10 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   const light = useRef(null!);
   const tapMesh = useRef<Mesh>(null!);
 
-  useFrame(({ viewport }) => {
+  useFrame(({ viewport, clock }) => {
+    const et = clock.elapsedTime;
+    uniforms.uTime.value = et;
+
     const { aspect } = viewport;
     if (!tapMesh.current) return;
     const maxScale = aspect > 0.6 ? 0.6 : aspect;

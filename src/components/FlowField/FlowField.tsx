@@ -22,7 +22,6 @@ const particlesPosition = () => {
 };
 
 const Flowfield = () => {
-  console.log("flow");
   const normalTexture = useTexture("/images/normal.jpg");
   const pos = boxTexture(SIZE);
 

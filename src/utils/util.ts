@@ -3,3 +3,7 @@ export const isMobileDevice = (agent: string) => {
 
   return mobileRegex.some((mobile) => agent.match(mobile));
 };
+
+export const sleep = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};

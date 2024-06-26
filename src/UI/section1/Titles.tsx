@@ -13,7 +13,7 @@ const Titles = () => {
         }}
         className={`${commonClass} z-10  top-[23%] lg:top-[25%] left-[50%] translate-x-[-50%] flex flex-col gap-y-[12px]`}
       >
-        <h1 className="text-[72px] lg:text-[8vw] flex flex-col lg:flex-row leading-[1.1]">
+        <h1 className="text-[72px] lg:text-[8vw] flex flex-col lg:flex-row lg:tracking-tighter lg:gap-x-[3rem] leading-[1.1]">
           <span>LET'S</span>
           <span>TOKK!</span>
         </h1>
