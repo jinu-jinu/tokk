@@ -1,35 +1,36 @@
-import { MotionValue, motion, useTransform } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 import { revealParagraph } from "../../contents/content";
-// import useColor from "../../hooks/useColor";
+import { useMemo } from "react";
+import useColor from "../../hooks/useColor";
 
 const Letter = ({
   word,
-  scroll,
-  idx,
-  len,
-}: {
+}: // scroll,
+// idx,
+// len,
+{
   word: string;
   idx: number;
   len: number;
   scroll: MotionValue<number>;
 }) => {
-  const opacity = useTransform(scroll, [(idx - 1) / len, idx / len], [0, 1]);
+  // const opacity = useTransform(scroll, [(idx - 1) / len, idx / len], [0, 1]);
   return (
-    <motion.span style={{ opacity }} className="inline-block whitespace-pre">
+    <motion.span style={{ opacity: 1 }} className="inline-block whitespace-pre">
       {word}
     </motion.span>
   );
 };
 
 const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
-  const paragraph = revealParagraph;
+  const paragraph = useMemo(() => revealParagraph, []);
   const len = paragraph.length;
-  // const { subColor } = useColor();
+  const { subColor } = useColor();
 
   return (
     <motion.div
       style={{
-        color: "#fff",
+        color: subColor,
       }}
       className="flex-[0.7] w-full max-w-[60vmax]"
     >

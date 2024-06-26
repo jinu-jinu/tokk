@@ -9,7 +9,7 @@ const Background = () => {
       style={{
         backgroundColor: mainColor,
       }}
-      className={`fixed top-0 left-0 w-full h-[100vh] bg-noise`}
+      className={`fixed top-0 left-0 w-full h-[100dvh] bg-noise`}
     />
   );
 };

@@ -9,7 +9,14 @@ import Section3 from "./UI/section3/Section3";
 
 const App = () => {
   return (
-    <ReactLenis root>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.05,
+        wheelMultiplier: 0.7,
+        syncTouch: true,
+      }}
+    >
       <div className="relative w-full min-h-[100dvh]">
         <Background />
         <Header />

@@ -122,3 +122,7 @@ bg가 고정이 아니라 막 움직였음
 - 모바일에서 tap을 눌렀을 때 버벅거림
 
 문제점은 섹션2의 revealParagraph에서 useColor를 사용중이기 때문
+useColor를 안쓰면 해결됌
+
+스크롤 방식을 개선해야함
+=> character에서 word로 변경

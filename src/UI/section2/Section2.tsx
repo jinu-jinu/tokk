@@ -10,7 +10,7 @@ const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
   const { scrollYProgress } = useScroll({
     target: scrollTarget,
-    offset: ["start start", "center start"],
+    offset: ["30vh", "380vh"],
   });
 
   return (
@@ -19,13 +19,13 @@ const Section2 = () => {
       style={{
         position: "relative",
         width: "100%",
-        height: "500vh",
+        height: "500dvh",
         display: "flex",
         backgroundColor: "rgba(255,255,255,.2)",
         flexDirection: "column",
       }}
     >
-      <div className="sticky top-0 left-0 w-full h-[100vh]">
+      <div className="sticky top-0 left-0 w-full h-[100dvh]">
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
           <Title />
           <RevealParagraph scroll={scrollYProgress} />
