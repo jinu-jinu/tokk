@@ -11,9 +11,6 @@ const Section1 = () => {
         <Experience />
       </View>
       <Titles />
-      {/* <Stickers /> */}
-
-      {/* <CircularText /> */}
       <Wave />
     </section>
   );

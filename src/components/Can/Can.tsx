@@ -7,7 +7,7 @@ import { useCanChangeActions } from "../../store/CanChangeStore";
 import { AssetTextureType } from "../../types";
 import { animate, useMotionValueEvent, useScroll } from "framer-motion";
 import { Group, Material, Mesh } from "three";
-// import { useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 
 const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) => {
   const opts = {
@@ -39,19 +39,19 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   const light = useRef(null!);
   const tapMesh = useRef<Mesh>(null!);
 
-  // useFrame(({ viewport, clock }) => {
-  //   const et = clock.elapsedTime;
-  //   uniforms.uTime.value = et;
+  useFrame(({ viewport, clock }) => {
+    const et = clock.elapsedTime;
+    uniforms.uTime.value = et;
 
-  //   const { aspect } = viewport;
-  //   if (!tapMesh.current) return;
-  //   const maxScale = aspect > 0.6 ? 0.6 : aspect;
-  //   tapMesh.current.scale.set(maxScale, maxScale, maxScale);
-  //   tapMesh.current.position.setX(viewport.width / 4);
-  //   tapMesh.current.position.setY((viewport.height / 3) * 0.9);
+    const { aspect } = viewport;
+    if (!tapMesh.current) return;
+    const maxScale = aspect > 0.6 ? 0.6 : aspect;
+    tapMesh.current.scale.set(maxScale, maxScale, maxScale);
+    tapMesh.current.position.setX(viewport.width / 4);
+    tapMesh.current.position.setY((viewport.height / 3) * 0.9);
 
-  //   tapMesh.current.matrixWorldNeedsUpdate = true;
-  // });
+    tapMesh.current.matrixWorldNeedsUpdate = true;
+  });
 
   const scrollRef = useRef<Group>(null!);
 
@@ -69,7 +69,6 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
       <mesh
-        position={[0, 2, 0]}
         ref={tapMesh}
         onPointerOver={(e) => {
           if (!tapMesh.current) return;
