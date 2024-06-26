@@ -1,19 +1,8 @@
-import { MotionValue, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { revealParagraph } from "../../contents/content";
 import { useMemo } from "react";
-import useColor from "../../hooks/useColor";
 
-const Letter = ({
-  word,
-}: // scroll,
-// idx,
-// len,
-{
-  word: string;
-  idx: number;
-  len: number;
-  scroll: MotionValue<number>;
-}) => {
+const Letter = ({ word }: { word: string }) => {
   // const opacity = useTransform(scroll, [(idx - 1) / len, idx / len], [0, 1]);
   return (
     <motion.span style={{ opacity: 1 }} className="inline-block whitespace-pre">
@@ -22,21 +11,14 @@ const Letter = ({
   );
 };
 
-const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
+const RevealParagraph = () => {
   const paragraph = useMemo(() => revealParagraph, []);
-  const len = paragraph.length;
-  const { subColor } = useColor();
 
   return (
-    <motion.div
-      style={{
-        color: subColor,
-      }}
-      className="flex-[0.7] w-full max-w-[60vmax]"
-    >
+    <motion.div className="flex-[0.7] w-full max-w-[60vmax]">
       <p className="s2-rv-fs-clamp font-Noto font-medium tracking-wide">
         {paragraph.map((word, i) => (
-          <Letter key={`${word}-${i}`} word={word} idx={i + 1} len={len} scroll={scroll} />
+          <Letter key={`${word}-${i}`} word={word} />
         ))}
       </p>
     </motion.div>
