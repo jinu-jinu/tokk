@@ -70,7 +70,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
       variants={parentVar}
       initial="initial"
       animate={view ? "animate" : "initial"}
-      className="absolute top-[20%] left-[50%] translate-x-[-50%] font-LOTTERIACHAB text-[2.2rem] lg:text-[5rem] text-nowrap"
+      className="relative font-LOTTERIACHAB text-[4.5vmax] text-nowrap"
     >
       {title.map((t, i) => (
         <motion.span variants={childVar} key={`${t}-${i}`}>

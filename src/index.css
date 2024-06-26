@@ -19,10 +19,6 @@ body {
   user-select: none;
 }
 
-#app {
-  overflow-x: hidden;
-}
-
 .box-shadow {
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
 }
@@ -48,4 +44,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* section2 reveal */
+.s2-rv-fs-clamp {
+  font-size: clamp(20px, 2.5vmax, 44px);
 }

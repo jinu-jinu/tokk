@@ -31,9 +31,9 @@ const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
       style={{
         color: subColor,
       }}
-      className="absolute top-[35%] left-[50%] translate-x-[-50%]"
+      className="flex-[0.7] w-full max-w-[60vmax]"
     >
-      <p className="text-[14px] lg:text-[32px] font-Noto font-medium">
+      <p className="s2-rv-fs-clamp font-Noto font-medium tracking-wide">
         {paragraph.map((word, i) => (
           <Letter key={`${word}-${i}`} word={word} idx={i + 1} len={len} scroll={scroll} />
         ))}

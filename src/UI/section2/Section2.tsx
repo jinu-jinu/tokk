@@ -10,7 +10,7 @@ const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
   const { scrollYProgress } = useScroll({
     target: scrollTarget,
-    offset: ["start start", "end end"],
+    offset: ["50vh", "350vh"],
   });
 
   return (
@@ -18,28 +18,22 @@ const Section2 = () => {
       ref={scrollTarget}
       style={{
         position: "relative",
-        width: "100vw",
+        width: "100%",
         height: "500vh",
         backgroundColor: "rgba(255, 255, 255, 0.2)",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <View
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <Flowfield />
-        <CustomCamera />
-      </View>
       <div className="sticky top-0 left-0 w-full h-[100dvh]">
-        <Title />
-        <RevealParagraph scroll={scrollYProgress} />
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-[77px] px-[2rem] gap-y-[2rem]">
+          <Title />
+          <RevealParagraph scroll={scrollYProgress} />
+        </div>
+        <View className="w-full h-full">
+          <Flowfield />
+          <CustomCamera />
+        </View>
       </div>
     </section>
   );
