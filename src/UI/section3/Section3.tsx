@@ -2,7 +2,7 @@ import { View } from "@react-three/drei";
 import Flowfield from "../../components/FlowField/FlowField";
 import CustomCamera from "../section1/CustomCamera";
 // import Experience from "./Experience";
-import { motion, useScroll, useTransform } from "framer-motion";
+// import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Article from "./Article";
 
@@ -18,12 +18,10 @@ import Article from "./Article";
 
 const Section3 = () => {
   const ref = useRef(null!);
-  const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
-    target: ref,
-  });
-
-  const width = useTransform(scrollYProgress, [0, 0.2], ["0px", "300px"]);
+  // const { scrollYProgress } = useScroll({
+  //   offset: ["start start", "end end"],
+  //   target: ref,
+  // });
 
   return (
     <div

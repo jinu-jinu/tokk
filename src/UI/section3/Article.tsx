@@ -1,5 +1,5 @@
-import { View } from "@react-three/drei";
-import Can from "../../components/Can/Can";
+// import { View } from "@react-three/drei";
+// import Can from "../../components/Can/Can";
 
 const Article = () => {
   return (
@@ -24,7 +24,7 @@ const Article = () => {
         선물입니다.
       </p>
 
-      <View></View>
+      {/* <View></View> */}
     </article>
   );
 };
