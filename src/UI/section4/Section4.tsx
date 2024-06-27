@@ -1,4 +1,4 @@
-import { useScroll } from "framer-motion";
+// import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import Title from "./Title";
 import BackgroundBubble from "./BackgroundBubble";
@@ -7,10 +7,10 @@ import CustomCamera from "../section1/CustomCamera";
 
 const Section4 = () => {
   const ref = useRef(null!);
-  const { scrollYProgress } = useScroll({
-    offset: ["start end", "end start"],
-    target: ref,
-  });
+  // const { scrollYProgress } = useScroll({
+  //   offset: ["start end", "end start"],
+  //   target: ref,
+  // });
 
   return (
     <div
