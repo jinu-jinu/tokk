@@ -5,7 +5,7 @@ const Titles = () => {
     <>
       <div
         style={{
-          color: "#999",
+          color: "#bbb",
           mixBlendMode: "screen",
         }}
         className={`${commonClass} z-10  top-[23%] lg:top-[25%] left-[50%] translate-x-[-50%] flex flex-col gap-y-[12px]`}

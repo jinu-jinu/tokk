@@ -26,12 +26,7 @@ const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
   const len = paragraph.length;
 
   return (
-    <motion.div
-      style={{
-        color: "#999",
-      }}
-      className="flex-[0.7] w-full max-w-[60vmax]"
-    >
+    <motion.div className="flex-[0.7] w-full max-w-[60vmax]">
       <p className="s2-rv-fs-clamp font-Noto font-medium tracking-wide">
         {paragraph.map((word, i) => (
           <Letter key={`${word}-${i}`} word={word} idx={i + 1} len={len} scroll={scroll} />

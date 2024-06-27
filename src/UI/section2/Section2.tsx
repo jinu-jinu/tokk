@@ -24,6 +24,8 @@ const Section2 = () => {
         backgroundColor: "rgba(255,255,255,.2)",
         flexDirection: "column",
         mixBlendMode: "screen",
+        color: "#bbb",
+        overflowX: "clip",
       }}
     >
       <div className="sticky top-0 left-0 w-full h-[100dvh]">

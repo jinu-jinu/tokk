@@ -45,7 +45,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
     const bubbleLoop = async () => {
       for (let i = 0; i <= len; i++) {
         await sleep(150);
-        for (let j = 0; j < 30; j++) {
+        for (let j = 0; j < 15; j++) {
           const yRandom = Math.random() * 30 - 15;
           const y = yCenter + yRandom;
           createBubble(i * xGap, y, titleRef.current);
@@ -60,14 +60,11 @@ const BubbleText = ({ title }: { title: string[] }) => {
 
   return (
     <motion.div
-      style={{
-        color: "#999",
-      }}
       ref={titleRef}
       variants={parentVar}
       initial="initial"
       animate={view ? "animate" : "initial"}
-      className="relative font-LOTTERIACHAB text-[4.5vmax] text-nowrap"
+      className="relative font-LOTTERIACHAB text-[4.5vmax] sm:text-[5vmax]"
     >
       {title.map((t, i) => (
         <motion.span variants={childVar} key={`${t}-${i}`}>

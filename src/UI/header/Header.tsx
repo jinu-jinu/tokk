@@ -5,8 +5,8 @@ const Header = () => {
     <>
       <header
         style={{
-          color: "#999",
-          borderColor: "#999",
+          color: "#bbb",
+          borderColor: "#bbb",
           mixBlendMode: "screen",
         }}
         className={`fixed top-0 left-0 w-full h-[77px] px-[1rem] lg:px-[2rem] py-[12px] z-50 flex items-center justify-between  border-b-[1px]`}
@@ -17,7 +17,7 @@ const Header = () => {
         <div className="flex gap-x-[8px] font-Prompt items-center">
           <button
             style={{
-              backgroundColor: "#999",
+              backgroundColor: "#bbb",
               color: "#000",
             }}
             className={`text-[14px] lg:text-[16px] font-bold px-[12px] py-[4px] rounded-[16px]`}
@@ -29,7 +29,7 @@ const Header = () => {
             <svg width="100%" height="100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 style={{
-                  stroke: "#999",
+                  stroke: "#bbb",
                 }}
                 d="M5 17H19M5 12H19M5 7H19"
                 strokeWidth="2"
@@ -40,7 +40,7 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <div className="fixed top-0 left-0 w-full h-[77px] backdrop-blur-sm" />
+      <div className="fixed top-0 left-0 w-full h-[77px] backdrop-blur-sm z-20" />
     </>
   );
 };

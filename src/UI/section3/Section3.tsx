@@ -4,7 +4,8 @@ import CustomCamera from "../section1/CustomCamera";
 // import Experience from "./Experience";
 // import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Article from "./Article";
+import Title from "./Title";
+import Articles from "./Articles";
 
 /*
   섹션3 이미지와 텍스트를 활용
@@ -26,20 +27,10 @@ const Section3 = () => {
   return (
     <div
       ref={ref}
-      style={{
-        position: "relative",
-        width: "100vw",
-        height: "200vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
+      className="relative w-full h-auto flex flex-col gap-y-[3rem] md:gap-y-[6rem] text-[#bbb] mix-blend-screen overflow-x-clip"
     >
-      <Article />
-      {/* <img
-        src="/images/test1.jpg"
-        width={400}
-        className="object-cover mix-blend-soft-light rounded-[24px]"
-      /> */}
+      <Title />
+      <Articles />
 
       {/* <div className="flex justify-center">
         <p className="flex flex-col text-[5rem] mix-blend-screen text-[#999] font-black">
@@ -59,8 +50,9 @@ const Section3 = () => {
 
       <View
         style={{
+          position: "absolute",
           width: "100%",
-          flex: 1,
+          height: "100%",
         }}
       >
         <Flowfield />

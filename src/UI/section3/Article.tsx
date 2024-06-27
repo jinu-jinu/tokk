@@ -1,30 +1,45 @@
-// import { View } from "@react-three/drei";
-// import Can from "../../components/Can/Can";
-
-const Article = () => {
+const Article = ({
+  deck,
+  title,
+  body,
+  src,
+  idx,
+}: {
+  deck: string;
+  title: string;
+  body: string;
+  src: string;
+  idx: number;
+}) => {
   return (
     <article
-      style={{
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        mixBlendMode: "screen",
-        color: "#999",
-        marginTop: "10rem",
-        marginLeft: "10rem",
-      }}
-      className="font-Noto flex flex-col leading-tight"
+      className={`font-Noto flex justify-center ${
+        idx % 2 ? "md:justify-end" : "md:justify-start"
+      } w-full max-w-[1440px]`}
     >
-      <p className="text-[14px] font-bold text-[#666] mb-[6px]">- TOKK을 마셔야 하는 이유</p>
-      <h2 className="font-LOTTERIACHAB text-[3.5rem]">100% 리얼 천연과즙</h2>
-      <p className="w-full max-w-[450px] text-[18px] mt-[2rem] text-justify">
-        TOKK은 100% 천연과즙만을 사용하여 신선하고 풍부한 과일의 맛을 그대로 담았습니다. 인공 첨가물
-        없이 자연 그대로의 맛을 느껴보세요. 건강한 선택을 위해, 우리는 자연에서 온 순수함만을
-        고집합니다. 여러분의 일상에 신선한 활력을 더하세요. 100% 천연과즙, 바로 자연이 주는 최고의
-        선물입니다.
-      </p>
-
-      {/* <View></View> */}
+      <div className="w-full max-w-[500px] md:max-w-[1050px] border-2 border-[#bbb] rounded-[1rem] flex flex-col md:flex-row">
+        <div className="md:flex-1 flex">
+          <img
+            className="rounded-t-[1rem] w-full md:rounded-tr-none md:rounded-bl-[1rem] object-cover"
+            src={`/images/${src}.jpg`}
+            alt={`${src} image`}
+          />
+        </div>
+        <div className="flex flex-col border-t-2 md:border-t-0 md:border-l-2 border-[#bbb] leading-tight md:flex-1">
+          <div className="md:flex-1 flex flex-col gap-y-[0.5rem] p-[1rem] lg:p-[2rem]">
+            <p className="text-[12px] font-bold text-[#777] lg:text-[14px]">{deck}</p>
+            <div className="flex flex-col gap-y-[1rem] w-full">
+              <h2 className="font-LOTTERIACHAB text-[2rem] lg:text-[2.5rem]">{title}</h2>
+              <p className="text-[16px] lg:text-[18px] text-justify leading-normal">{body}</p>
+            </div>
+          </div>
+          <div className="w-full border-t-2 p-[1rem] border-[#bbb]">
+            <button className="w-full h-[66px] bg-[#777] rounded-[1rem] text-[#000] font-black text-[18px]  box-shadow">
+              MORE INFO
+            </button>
+          </div>
+        </div>
+      </div>
     </article>
   );
 };
