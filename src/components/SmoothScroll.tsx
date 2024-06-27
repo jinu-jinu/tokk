@@ -8,7 +8,7 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
     lerp: 0.05,
     wheelMultiplier: 0.5,
     syncTouchLerp: 0.01,
-    touchMultiplier: 0.5,
+    touchMultiplier: 0.1,
   });
 
   useEffect(() => {
