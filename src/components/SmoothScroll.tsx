@@ -5,9 +5,9 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   const lenis = new Lenis({
     smoothWheel: true,
     syncTouch: true,
-    lerp: 0.03,
+    lerp: 0.05,
     wheelMultiplier: 0.5,
-    syncTouchLerp: 0.03,
+    syncTouchLerp: 0.05,
     touchMultiplier: 0.5,
   });
 
