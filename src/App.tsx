@@ -6,6 +6,7 @@ import Background from "./components/Background";
 import Section2 from "./UI/section2/Section2";
 import Section3 from "./UI/section3/Section3";
 import SmoothScroll from "./components/SmoothScroll";
+import Section4 from "./UI/section4/Section4";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Section1 />
         <Section2 />
         <Section3 />
-        <div className="w-full h-[100dvh]" />
+        <Section4 />
 
         <Canvas
           style={{
