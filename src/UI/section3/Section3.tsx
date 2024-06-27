@@ -5,6 +5,14 @@ import CustomCamera from "../section1/CustomCamera";
 // import { useScroll } from "framer-motion";
 // import { useRef } from "react";
 
+/*
+  섹션3 이미지와 텍스트를 활용
+
+  텍스트 사이에 이미지가 끼어있는 디자인
+
+  문장(크게 의미 없는 디자인용)이 빈 여백을 채움
+*/
+
 const Section3 = () => {
   // const ref = useRef(null!);
   // const { scrollYProgress } = useScroll({

@@ -8,7 +8,7 @@ const Header = () => {
         borderColor: "#999",
         mixBlendMode: "screen",
       }}
-      className={`fixed top-0 left-0 w-full h-[77px] px-[1rem] lg:px-[2rem] py-[12px] z-50 flex items-center justify-between border-b-[1px] backdrop-blur-sm`}
+      className={`fixed top-0 left-0 w-full h-[77px] px-[1rem] lg:px-[2rem] py-[12px] z-50 flex items-center justify-between bg-transparent border-b-[1px] backdrop-blur-sm`}
     >
       {/* logo */}
       <p className="font-LOTTERIACHAB text-[1.5rem] lg:text-[2rem]">TOKK</p>
