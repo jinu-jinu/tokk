@@ -1,17 +1,15 @@
-import Can from "../../components/Can/Can";
-import useAssetInit from "../../components/Can/useAssetInit";
+import { View } from "@react-three/drei";
 import Flowfield from "../../components/FlowField/FlowField";
 import CustomCamera from "./CustomCamera";
+import TapCan from "./TapCan";
 
 const Experience = () => {
-  const { nodes, textures } = useAssetInit();
-
   return (
-    <>
+    <View className="w-full h-full">
+      <TapCan />
       <Flowfield />
-      <Can nodes={nodes} textures={textures} />
       <CustomCamera />
-    </>
+    </View>
   );
 };
 

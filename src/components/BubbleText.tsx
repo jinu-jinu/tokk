@@ -45,7 +45,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
     const bubbleLoop = async () => {
       for (let i = 0; i <= len; i++) {
         await sleep(150);
-        for (let j = 0; j < 15; j++) {
+        for (let j = 0; j < 10; j++) {
           const yRandom = Math.random() * 30 - 15;
           const y = yCenter + yRandom;
           createBubble(i * xGap, y, titleRef.current);

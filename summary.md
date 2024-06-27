@@ -13,49 +13,22 @@
 
 ## TEXTS
 
-- 메인
-
-LET'S TOKK!
-TOKK하고 터지는 짜릿한 기분
-
-- 섹션2
-
-WHAT'S TOKK?
-
---- typingtext 효과에 사용될 문장 ---
-
-천연과즙의 상큼함과 강렬한 탄산의 만남, TOKK!
-지친 일상에 활력을 불어넣어줄 TOKK을 소개합니다.
-100% 천연과즙으로 만든 상큼한 맛에 제로슈가로 부담없이 즐길 수 있습니다.
-탄산이 풍부하게 들어가 있어, 한 모금 마실 때마다 온몸에 짜릿한 전율이 느껴집니다.
-자연의 맛을 그대로 담아낸 TOKK, 새로운 탄산음료의 기준이 됩니다.
-상쾌하고 건강한 탄산음료 TOKK으로 일상에 활력을 불어넣으세요!
-
---- typingtext 효과에 사용될 문장 ---
-
-- 섹션3 (장점이 되는 부분을 다시 한 번 집고 넘어가기)
-
-= 백그라운드에 마퀴로 NATURE, ZERO, REAL 텍스트 깔기
-
-1. 100% 천연과즙 => 100에 카운트 효과
-
-TOKK은 100% REAL 천연과즙을 사용해서 만들었습니다.
-인공 첨가물 없는 자연 그대로의 맛을 느껴보세요.
-
-2. 제로, 제로, 제로 => 크기를 빠바박 삼단 콤보
-
-TOKK은 대체당을 사용한 슈가프리 음료입니다.
-설탕 걱정 제로! 살찔 염려 제로! 치과 갈일 제로!
-부담 없이 마음껏 즐기세요.
-
-3. 리얼 고탄산 => 버블 효과 넣어주기
-
-TOKK은 4.0 볼륨의 CO2가 음료에 용해되어있는 고탄산 음료입니다.
-탄산의 강렬함과 짜릿함으로 스트레스를 날려보내세요!
-
 - 섹션4 (성분 소개)
 
-그리드로 음료의 성분 기깔나게 표현하기
+스티키로 하고
+
+이름
+당 0,
+과즙 100,
+탄산 4.0
+칼로리 0
+용량 355
+적정 보관온도 2
+비타민 1000mg
+
+재료
+물, 이산화탄소, 비타민C, 아세설팜칼륨
+레몬, 라임(과일)
 
 - 섹션5 (맛 소개)
 
@@ -126,3 +99,21 @@ useColor를 안쓰면 해결됌
 
 스크롤 방식을 개선해야함
 => character에서 word로 변경
+
+텍스트 사이에 이미지
+
+      {/* <div className="flex justify-center">
+        <p className="flex flex-col text-[5rem] mix-blend-screen text-[#999] font-black">
+          <span>HELLO WORLD</span>
+          <span className="flex justify-start items-start text-[3rem] h-[3rem]">
+            IN
+            <span className="flex justify-start items-start">
+              <motion.span
+                style={{ width }}
+                className=" w-[0px] h-[200px] bg-blue-300 inline-block"
+              />
+              <span>WHAT</span>
+            </span>
+          </span>
+        </p>
+      </div> */}
