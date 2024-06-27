@@ -39,8 +39,9 @@ const DefaultCan = ({
   const viewPortWidth = useRef<number | null>(0);
 
   useFrame(({ viewport }) => {
-    if (!can2.current && !can3.current) return;
+    if (!can1.current && !can2.current && !can3.current) return;
 
+    can1.current.matrixWorldNeedsUpdate = true;
     can2.current.matrixWorldNeedsUpdate = true;
     can3.current.matrixWorldNeedsUpdate = true;
 
