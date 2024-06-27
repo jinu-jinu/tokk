@@ -1,16 +1,16 @@
 import { View } from "@react-three/drei";
 import Flowfield from "../../components/FlowField/FlowField";
 import CustomCamera from "../section1/CustomCamera";
-import Experience from "./Experience";
-import { useScroll } from "framer-motion";
-import { useRef } from "react";
+// import Experience from "./Experience";
+// import { useScroll } from "framer-motion";
+// import { useRef } from "react";
 
 const Section3 = () => {
-  const ref = useRef(null!);
-  const { scrollYProgress } = useScroll({
-    offset: ["center end", "start"],
-    target: ref,
-  });
+  // const ref = useRef(null!);
+  // const { scrollYProgress } = useScroll({
+  //   offset: ["center end", "start"],
+  //   target: ref,
+  // });
 
   return (
     <div
@@ -22,6 +22,9 @@ const Section3 = () => {
         flexDirection: "column",
       }}
     >
+      <p className="flex justify-center items-center text-[5rem] mix-blend-screen text-[#999] font-black">
+        HELLO
+      </p>
       <View
         style={{
           width: "100%",
@@ -32,7 +35,7 @@ const Section3 = () => {
         <CustomCamera />
       </View>
 
-      <View
+      {/* <View
         ref={ref}
         style={{
           borderRadius: "20px",
@@ -45,7 +48,7 @@ const Section3 = () => {
         }}
       >
         <Experience scrollY={scrollYProgress} />
-      </View>
+      </View> */}
     </div>
   );
 };

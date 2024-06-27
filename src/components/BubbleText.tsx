@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { createBubble } from "../utils/createBubble";
-import useColor from "../hooks/useColor";
 import { motion, useInView } from "framer-motion";
 import { sleep } from "../utils/util";
 
@@ -59,12 +58,10 @@ const BubbleText = ({ title }: { title: string[] }) => {
     }
   }, [view]);
 
-  const { subColor } = useColor();
-
   return (
     <motion.div
       style={{
-        color: subColor,
+        color: "#999",
       }}
       ref={titleRef}
       variants={parentVar}

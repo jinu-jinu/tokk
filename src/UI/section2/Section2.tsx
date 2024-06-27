@@ -23,6 +23,7 @@ const Section2 = () => {
         display: "flex",
         backgroundColor: "rgba(255,255,255,.2)",
         flexDirection: "column",
+        mixBlendMode: "screen",
       }}
     >
       <div className="sticky top-0 left-0 w-full h-[100dvh]">

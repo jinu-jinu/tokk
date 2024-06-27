@@ -28,7 +28,7 @@ const RevealParagraph = ({ scroll }: { scroll: MotionValue<number> }) => {
   return (
     <motion.div
       style={{
-        color: "rgba(255, 255, 255, .7)",
+        color: "#999",
       }}
       className="flex-[0.7] w-full max-w-[60vmax]"
     >

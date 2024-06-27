@@ -12,7 +12,7 @@ const Wave = () => {
 
   return (
     <svg
-      className="absolute z-10 bottom-0 left-0"
+      className="absolute z-10 bottom-0 left-0 pointer-events-none"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 2000 600"
     >

@@ -6,7 +6,7 @@ import fragment from "./fragment.glsl?raw";
 import { useCanChangeActions } from "../../store/CanChangeStore";
 import { AssetTextureType } from "../../types";
 import { animate, useMotionValueEvent, useScroll } from "framer-motion";
-import { Group, Material, Mesh } from "three";
+import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
 
 const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) => {
@@ -32,25 +32,14 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
       uTex1: { value: textureMapping[current.current] },
       uTex2: { value: textureMapping[next.current] },
       uTime: { value: 0 },
+      uHover: { value: 0 },
     }),
     []
   );
 
-  const light = useRef(null!);
-  const tapMesh = useRef<Mesh>(null!);
-
-  useFrame(({ viewport, clock }) => {
+  useFrame(({ clock }) => {
     const et = clock.elapsedTime;
     uniforms.uTime.value = et;
-
-    const { aspect } = viewport;
-    if (!tapMesh.current) return;
-    const maxScale = aspect > 0.6 ? 0.6 : aspect;
-    tapMesh.current.scale.set(maxScale, maxScale, maxScale);
-    tapMesh.current.position.setX(viewport.width / 4);
-    tapMesh.current.position.setY((viewport.height / 3) * 0.9);
-
-    tapMesh.current.matrixWorldNeedsUpdate = true;
   });
 
   const scrollRef = useRef<Group>(null!);
@@ -68,25 +57,35 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
-      <mesh
-        ref={tapMesh}
+      {/* 스크롤 그룹 */}
+      <group
+        ref={scrollRef}
+        dispose={null}
+        position={[0, -2, 0]}
         onPointerOver={(e) => {
-          if (!tapMesh.current) return;
-
-          const mat = tapMesh.current.material as Material;
-          mat.opacity = 0.6;
-
+          if (!scrollRef.current) return;
           e.stopPropagation();
           document.body.style.cursor = "pointer";
+
+          animate(0, 1, {
+            duration: 0.3,
+            ease: "easeIn",
+            onUpdate: (n) => {
+              uniforms.uHover.value = n;
+            },
+          });
         }}
         onPointerOut={(e) => {
-          if (!tapMesh.current) return;
-
-          const mat = tapMesh.current.material as Material;
-          mat.opacity = 1;
-
+          if (!scrollRef.current) return;
           e.stopPropagation();
           document.body.style.cursor = "default";
+          animate(1, 0, {
+            duration: 0.3,
+            ease: "easeOut",
+            onUpdate: (n) => {
+              uniforms.uHover.value = n;
+            },
+          });
         }}
         onClick={() => {
           if (trigger.current) return;
@@ -117,15 +116,10 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
           canRef.current.matrixWorldNeedsUpdate = true;
         }}
       >
-        <circleGeometry />
-        <meshStandardMaterial map={textures.tap} roughness={1} transparent opacity={1} />
-      </mesh>
-      {/* 스크롤 그룹 */}
-      <group ref={scrollRef} dispose={null} position={[0, -2, 0]}>
         <group>
           <Environment preset="city" background={false} environmentIntensity={1.2} />
           <directionalLight position={[-1, 3, 4]} intensity={1.2} />
-          <pointLight ref={light} position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
+          <pointLight position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
           <pointLight position={[2, -2, 2]} decay={0.5} intensity={3} />
 
           {/* 버튼 회전 그룹 */}

@@ -1,9 +1,10 @@
 varying vec2 vUv;
 varying vec3 vPosition;
 
-
 void main () {
-  csm_Position = position;
+  vec3 newPosition = position;
+  csm_Position = newPosition;
+
   vUv = uv;
-  vPosition = position;
+  vPosition = newPosition;
 }
