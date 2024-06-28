@@ -1,33 +1,23 @@
-import { View } from "@react-three/drei";
-import Experience from "./Experience";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
-import Title from "./Title";
 import BackgroundBubble from "../../components/BackgroundBubble";
+import Titles from "./Titles";
+import Figures from "./Figures";
 
 const Section5 = () => {
   const ref = useRef<HTMLDivElement>(null!);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start center", "end center"],
   });
 
   return (
     <section
       ref={ref}
-      className="relative w-full h-auto text-[#bbb] mix-blend-screen overflow-x-clip"
+      className="relative w-full h-auto text-[#bbb] mix-blend-screen overflow-x-clip flex flex-col items-center gap-y-[3rem] lg:gap-y-[8rem]"
     >
-      <Title />
-      <View
-        style={{
-          borderRadius: "20px",
-          width: "100%",
-          maxWidth: "480px",
-          height: "640px",
-        }}
-      >
-        <Experience scrollY={scrollYProgress} />
-      </View>
+      <Titles />
+      <Figures scrollY={scrollYProgress} />
 
       <BackgroundBubble customClass="absolute top-0 left-0 w-full h-full" />
     </section>

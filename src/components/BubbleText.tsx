@@ -59,7 +59,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
   }, [view]);
 
   return (
-    <motion.div
+    <motion.p
       ref={titleRef}
       variants={parentVar}
       initial="initial"
@@ -71,7 +71,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
           {t === " " ? <span className="inline-block">&nbsp;</span> : t}
         </motion.span>
       ))}
-    </motion.div>
+    </motion.p>
   );
 };
 

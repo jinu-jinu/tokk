@@ -3,12 +3,12 @@ import TapCanMaterial from "./TapCanMaterial";
 import { useMemo, useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
-import { useCanChangeActions } from "../../store/canChangeStore";
 import { animate, useScroll, useSpring, useTransform } from "framer-motion";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { useNodes, useTextures } from "../../store/asstesStore";
+import { useCanChangeActions } from "../../store/canChangeStore";
 
 const TapCan = () => {
   const nodes = useNodes();
@@ -46,8 +46,6 @@ const TapCan = () => {
     uniforms.uTime.value = et;
   });
 
-  const scrollRef = useRef<Group>(null!);
-
   const { scrollYProgress } = useScroll({
     offset: ["0vh", "70vh"],
   });
@@ -58,12 +56,11 @@ const TapCan = () => {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
       {/* 스크롤 그룹 */}
       <motion.group
-        dispose={null}
         position={[0, ySpring, 0]}
         onPointerOver={(e) => {
-          if (!scrollRef.current) return;
           e.stopPropagation();
           document.body.style.cursor = "pointer";
+          console.log("asdf");
 
           animate(0, 1, {
             duration: 0.3,
@@ -74,7 +71,6 @@ const TapCan = () => {
           });
         }}
         onPointerOut={(e) => {
-          if (!scrollRef.current) return;
           e.stopPropagation();
           document.body.style.cursor = "default";
           animate(1, 0, {

@@ -21,6 +21,7 @@ const App = () => {
         <Section3 />
         <Section4 />
         <Section5 />
+        <div className="relative w-full h-[100dvh] bg-white "></div>
 
         <Canvas
           style={{

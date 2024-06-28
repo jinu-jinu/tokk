@@ -1,24 +1,30 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
-import { Mesh } from "three";
 import vertexShader from "./glsl/vertex.glsl";
 import fragmentShader from "./glsl/fragment.glsl";
-import { MotionValue, useMotionValueEvent } from "framer-motion";
+import { MotionValue, useTransform } from "framer-motion";
 import { useTextures } from "../../store/asstesStore";
 
-const Experience = ({ scrollY }: { scrollY: MotionValue<number> }) => {
+const Experience = ({
+  scrollY,
+  textureKey,
+  scrollOffset,
+}: {
+  scrollY: MotionValue<number>;
+  textureKey: string;
+  scrollOffset: any;
+}) => {
   const { viewport } = useThree();
-  const textures = useTextures();
-  const mesh1 = useRef<Mesh>(null!);
+  const texture = useTextures()!;
   const uniforms = useRef({
     uTime: { value: 0 },
     uScroll: { value: 1 },
-    uTex: { value: textures?.s5Five },
+    uTex: { value: texture[textureKey] },
   });
 
-  useMotionValueEvent(scrollY, "change", (e) => {
-    uniforms.current.uScroll.value = 1 - e;
-    console.log(e);
+  const progress = useTransform(scrollY, [scrollOffset[0], scrollOffset[1]], [1, 0]);
+  progress.on("change", (e) => {
+    uniforms.current.uScroll.value = e;
   });
 
   useFrame(({ clock }) => {
@@ -27,17 +33,15 @@ const Experience = ({ scrollY }: { scrollY: MotionValue<number> }) => {
   });
 
   return (
-    <>
-      <mesh ref={mesh1}>
-        <planeGeometry args={[viewport.width, viewport.height, 32, 32]} />
-        <shaderMaterial
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-          uniforms={uniforms.current}
-          transparent
-        />
-      </mesh>
-    </>
+    <mesh>
+      <planeGeometry args={[viewport.width, viewport.height, 32, 32]} />
+      <shaderMaterial
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        uniforms={uniforms.current}
+        transparent
+      />
+    </mesh>
   );
 };
 

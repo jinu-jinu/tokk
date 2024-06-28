@@ -31,5 +31,10 @@ useTexture.preload([
   "/images/lemon.avif",
   "/images/grape.avif",
   "/images/brushed.avif",
+  "/images/section5-1.avif",
+  "/images/section5-2.avif",
+  "/images/section5-3.avif",
+  "/images/section5-4.avif",
+  "/images/section5-5.avif",
 ]);
 export default AssetsInit;
