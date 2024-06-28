@@ -7,7 +7,6 @@ const useAssetInit = () => {
     color2: "/images/lemon.avif",
     color3: "/images/grape.avif",
     bump: "/images/brushed.avif",
-    tap: "/images/tap.jpg",
   });
   textures.color1.flipY = false;
   textures.color2.flipY = false;
@@ -18,4 +17,10 @@ const useAssetInit = () => {
 };
 
 useGLTF.preload("/models/can.glb");
+useTexture.preload([
+  "/images/strawberry.avif",
+  "/images/lemon.avif",
+  "/images/grape.avif",
+  "/images/brushed.avif",
+]);
 export default useAssetInit;

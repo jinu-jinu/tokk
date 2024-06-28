@@ -3,15 +3,7 @@ import Flowfield from "../../components/FlowField/FlowField";
 
 const BackgroundBubble = () => {
   return (
-    <View
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }}
-    >
+    <View className="w-full h-full">
       <Flowfield />
     </View>
   );

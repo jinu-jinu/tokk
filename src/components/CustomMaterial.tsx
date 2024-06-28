@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import CSM from "three-custom-shader-material";
 import { Material } from "three";
-import { useIsAssetDownloaded } from "../store/loadingStore";
-import { animate } from "framer-motion";
-import { useIsTransitionOut, useTransitionActions } from "../store/transitionStore";
+// import { useIsAssetDownloaded } from "../store/loadingStore";
+// import { animate } from "framer-motion";
 
 const CustomMaterial = ({
   baseMaterial,
@@ -20,36 +19,34 @@ const CustomMaterial = ({
     };
   };
 }) => {
-  const isAssetDownloaded = useIsAssetDownloaded();
-  const isTransitionOut = useIsTransitionOut();
-  const handleTransitionOut = useTransitionActions("handleTransitionOut");
+  // const isAssetDownloaded = useIsAssetDownloaded();
 
-  useEffect(() => {
-    if (!isAssetDownloaded) return;
+  // useEffect(() => {
+  //   if (!isAssetDownloaded) return;
 
-    if (!isTransitionOut)
-      animate(1, 0, {
-        type: "tween",
-        duration: 1,
-        ease: "easeIn",
-        onUpdate: (n) => {
-          uniforms.uValue.value = n;
-        },
-      });
+  //   if (!isTransitionOut)
+  //     animate(1, 0, {
+  //       type: "tween",
+  //       duration: 1,
+  //       ease: "easeIn",
+  //       onUpdate: (n) => {
+  //         uniforms.uValue.value = n;
+  //       },
+  //     });
 
-    if (isTransitionOut)
-      animate(0, 1, {
-        type: "tween",
-        duration: 1,
-        ease: "easeOut",
-        onUpdate: (n) => {
-          uniforms.uValue.value = n;
-        },
-        onComplete: () => {
-          handleTransitionOut(false);
-        },
-      });
-  }, [isAssetDownloaded, isTransitionOut]);
+  //   if (isTransitionOut)
+  //     animate(0, 1, {
+  //       type: "tween",
+  //       duration: 1,
+  //       ease: "easeOut",
+  //       onUpdate: (n) => {
+  //         uniforms.uValue.value = n;
+  //       },
+  //       onComplete: () => {
+  //         handleTransitionOut(false);
+  //       },
+  //     });
+  // }, [isAssetDownloaded, isTransitionOut]);
 
   return (
     <CSM

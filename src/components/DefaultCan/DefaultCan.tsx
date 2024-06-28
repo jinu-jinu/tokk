@@ -3,10 +3,10 @@ import { useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
 import { AssetTextureType } from "../../types";
-import { MotionValue, useMotionValueEvent } from "framer-motion";
-import * as THREE from "three";
+import { MotionValue, useSpring, useTransform } from "framer-motion";
 import DefaultCanMaterial from "./DefaultCanMaterial";
 import { useFrame } from "@react-three/fiber";
+import { motion } from "framer-motion-3d";
 
 const DefaultCan = ({
   nodes,
@@ -24,24 +24,22 @@ const DefaultCan = ({
     bumpScale: 0.4,
   };
 
-  const can1 = useRef<THREE.Group>(null!);
-  const can2 = useRef<THREE.Group>(null!);
-  const can3 = useRef<THREE.Group>(null!);
+  const can2 = useRef<any>(null!);
+  const can3 = useRef<any>(null!);
 
-  useMotionValueEvent(scrollYProgress, "change", (e) => {
-    if (!can1.current || !can2.current || !can3.current) return;
-
-    can1.current.position.setY(15 - e * 40);
-    can2.current.position.setY(20 - e * 50);
-    can3.current.position.setY(30 - e * 60);
-  });
+  const y1 = useTransform(scrollYProgress, [0, 1], [12, -20]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [20, -25]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [25, -30]);
+  const springOpt = { bounce: 1, damping: 40, stiffness: 120 };
+  const y1Spring = useSpring(y1, springOpt);
+  const y2Spring = useSpring(y2, springOpt);
+  const y3Spring = useSpring(y3, springOpt);
 
   const viewPortWidth = useRef<number | null>(0);
 
   useFrame(({ viewport }) => {
-    if (!can1.current && !can2.current && !can3.current) return;
+    if (!can2.current && !can3.current) return;
 
-    can1.current.matrixWorldNeedsUpdate = true;
     can2.current.matrixWorldNeedsUpdate = true;
     can3.current.matrixWorldNeedsUpdate = true;
 
@@ -71,7 +69,10 @@ const DefaultCan = ({
       <pointLight position={[2, -2, 2]} decay={0.5} intensity={3} />
 
       <Float speed={3} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <group ref={can1} position={[0, 15, -10]} rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}>
+        <motion.group
+          position={[0, y1Spring, -10]}
+          rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}
+        >
           <mesh geometry={nodes.Circle.geometry}>
             <DefaultCanMaterial
               vertexShader={vertex}
@@ -90,13 +91,13 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </group>
+        </motion.group>
       </Float>
 
       <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <group
+        <motion.group
           ref={can2}
-          position={[0, 20, -10]}
+          position={[0, y2Spring, -10]}
           rotation={[Math.PI * -0.05, Math.PI * -0.1, Math.PI * 0.2]}
         >
           <mesh geometry={nodes.Circle.geometry}>
@@ -117,13 +118,13 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </group>
+        </motion.group>
       </Float>
 
       <Float speed={5} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <group
+        <motion.group
           ref={can3}
-          position={[0, 30, -10]}
+          position={[0, y3Spring, -10]}
           rotation={[Math.PI * 0.05, Math.PI * 0.1, -Math.PI * 0.2]}
         >
           <mesh geometry={nodes.Circle.geometry}>
@@ -144,7 +145,7 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </group>
+        </motion.group>
       </Float>
     </group>
   );

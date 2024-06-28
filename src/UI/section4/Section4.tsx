@@ -1,35 +1,26 @@
-// import { useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 import { useRef } from "react";
-// import Title from "./Title";
 import BackgroundBubble from "./BackgroundBubble";
-import { View } from "@react-three/drei";
-import CustomCamera from "../section1/CustomCamera";
 import Swipers from "./Swipers";
+import RollingCanComp from "./RollingCanComp";
+import { View } from "@react-three/drei";
 
 const Section4 = () => {
   const ref = useRef(null!);
-  // const { scrollYProgress } = useScroll({
-  //   offset: ["start end", "end start"],
-  //   target: ref,
-  // });
-
-  /*
-    제목 100으로 놓고
-
-    그 다음에 스와이퍼가 하나씩 올림
-  */
+  const { scrollYProgress } = useScroll({
+    offset: ["50vh", "350vh"],
+    target: ref,
+  });
 
   return (
-    <div
-      ref={ref}
-      className="relative w-full h-[400dvh] flex flex-col gap-y-[3rem] md:gap-y-[6rem] text-[#bbb] overflow-x-clip"
-    >
-      <Swipers />
-
-      <View className="absolute top-0 left-0 w-full h-full">
-        <CustomCamera />
-      </View>
-      <BackgroundBubble />
+    <div ref={ref} className="relative w-full h-[500dvh] text-[#bbb]">
+      <div className="sticky top-0 left-0 w-full h-[100dvh]">
+        <Swipers scrollY={scrollYProgress} />
+        <BackgroundBubble />
+        <View className="absolute top-0 left-0 w-full h-full">
+          <RollingCanComp scrollY={scrollYProgress} />
+        </View>
+      </div>
     </div>
   );
 };

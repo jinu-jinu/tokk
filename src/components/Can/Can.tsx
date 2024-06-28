@@ -5,9 +5,10 @@ import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
 import { useCanChangeActions } from "../../store/CanChangeStore";
 import { AssetTextureType } from "../../types";
-import { animate, useMotionValueEvent, useScroll } from "framer-motion";
+import { animate, useScroll, useSpring, useTransform } from "framer-motion";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
+import { motion } from "framer-motion-3d";
 
 const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) => {
   const opts = {
@@ -45,23 +46,17 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   const scrollRef = useRef<Group>(null!);
 
   const { scrollYProgress } = useScroll({
-    offset: ["0vh", "100vh"],
+    offset: ["0vh", "70vh"],
   });
-
-  const defaultSCrollY = -2;
-  useMotionValueEvent(scrollYProgress, "change", (e) => {
-    if (!scrollRef.current) return;
-
-    scrollRef.current.position.setY(defaultSCrollY - e * 3);
-  });
+  const y = useTransform(scrollYProgress, [0, 1], [-2, -5]);
+  const ySpring = useSpring(y, { bounce: 1, damping: 30, stiffness: 150 });
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
       {/* 스크롤 그룹 */}
-      <group
-        ref={scrollRef}
+      <motion.group
         dispose={null}
-        position={[0, -2, 0]}
+        position={[0, ySpring, 0]}
         onPointerOver={(e) => {
           if (!scrollRef.current) return;
           e.stopPropagation();
@@ -143,7 +138,7 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
             </mesh>
           </group>
         </group>
-      </group>
+      </motion.group>
     </Float>
   );
 };
