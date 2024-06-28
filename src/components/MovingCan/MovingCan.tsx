@@ -2,21 +2,16 @@ import { Environment, Float } from "@react-three/drei";
 import { useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
-import { AssetTextureType } from "../../types";
 import { MotionValue, useSpring, useTransform } from "framer-motion";
-import DefaultCanMaterial from "./DefaultCanMaterial";
+import MovingCanMaterial from "./MovingCanMaterial";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
+import { useNodes, useTextures } from "../../store/asstesStore";
 
-const DefaultCan = ({
-  nodes,
-  textures,
-  scrollYProgress,
-}: {
-  nodes: any;
-  textures: AssetTextureType;
-  scrollYProgress: MotionValue<number>;
-}) => {
+const MovingCan = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+  const nodes = useNodes();
+  const textures = useTextures()!;
+
   const opts = {
     metalness: 0.5,
     roughness: 0.2,
@@ -74,7 +69,7 @@ const DefaultCan = ({
           rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}
         >
           <mesh geometry={nodes.Circle.geometry}>
-            <DefaultCanMaterial
+            <MovingCanMaterial
               vertexShader={vertex}
               fragmentShader={fragment}
               opts={opts}
@@ -101,7 +96,7 @@ const DefaultCan = ({
           rotation={[Math.PI * -0.05, Math.PI * -0.1, Math.PI * 0.2]}
         >
           <mesh geometry={nodes.Circle.geometry}>
-            <DefaultCanMaterial
+            <MovingCanMaterial
               vertexShader={vertex}
               fragmentShader={fragment}
               opts={opts}
@@ -128,7 +123,7 @@ const DefaultCan = ({
           rotation={[Math.PI * 0.05, Math.PI * 0.1, -Math.PI * 0.2]}
         >
           <mesh geometry={nodes.Circle.geometry}>
-            <DefaultCanMaterial
+            <MovingCanMaterial
               vertexShader={vertex}
               fragmentShader={fragment}
               opts={opts}
@@ -151,4 +146,4 @@ const DefaultCan = ({
   );
 };
 
-export default DefaultCan;
+export default MovingCan;

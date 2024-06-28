@@ -6,7 +6,9 @@ import Background from "./components/Background";
 import Section2 from "./UI/section2/Section2";
 import Section3 from "./UI/section3/Section3";
 import SmoothScroll from "./components/SmoothScroll";
+import AssetsInit from "./components/AssetsInit";
 import Section4 from "./UI/section4/Section4";
+import Section5 from "./UI/section5/Section5";
 
 const App = () => {
   return (
@@ -18,7 +20,7 @@ const App = () => {
         <Section2 />
         <Section3 />
         <Section4 />
-        <div className="bg-white w-full h-[100dvh]" />
+        <Section5 />
 
         <Canvas
           style={{
@@ -32,6 +34,7 @@ const App = () => {
           eventSource={document.getElementById("root")!}
         >
           <View.Port />
+          <AssetsInit />
           <Preload all />
         </Canvas>
       </div>

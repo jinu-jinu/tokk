@@ -1,19 +1,19 @@
-import { useTexture } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 import vertexShader from "./glsl/vertex.glsl";
 import fragmentShader from "./glsl/fragment.glsl";
 import { MotionValue, useMotionValueEvent } from "framer-motion";
+import { useTextures } from "../../store/asstesStore";
 
 const Experience = ({ scrollY }: { scrollY: MotionValue<number> }) => {
   const { viewport } = useThree();
+  const textures = useTextures();
   const mesh1 = useRef<Mesh>(null!);
-  const tex = useTexture("/images/look1.jpg");
   const uniforms = useRef({
     uTime: { value: 0 },
     uScroll: { value: 1 },
-    uTex: { value: tex },
+    uTex: { value: textures?.s5Five },
   });
 
   useMotionValueEvent(scrollY, "change", (e) => {

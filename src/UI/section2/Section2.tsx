@@ -1,10 +1,9 @@
-import { View } from "@react-three/drei";
-import Flowfield from "../../components/FlowField/FlowField";
-import CustomCamera from "../section1/CustomCamera";
+import CustomCamera from "../../components/CustomCamera";
 import Title from "./Title";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import RevealParagraph from "./RevealParagraph";
+import BackgroundBubble from "../../components/BackgroundBubble";
 
 const Section2 = () => {
   const scrollTarget = useRef<HTMLElement>(null!);
@@ -33,10 +32,9 @@ const Section2 = () => {
           <Title />
           <RevealParagraph scroll={scrollYProgress} />
         </div>
-        <View className="w-full h-full">
-          <Flowfield />
+        <BackgroundBubble customClass="w-full h-full">
           <CustomCamera />
-        </View>
+        </BackgroundBubble>
       </div>
     </section>
   );

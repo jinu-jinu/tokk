@@ -2,10 +2,10 @@ import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import Title from "./Title";
 import Articles from "./Articles";
-import BackgroundBubble from "./BackgroundBubble";
-import MovingCan from "./MovingCan";
 import { View } from "@react-three/drei";
-import CustomCamera from "../section1/CustomCamera";
+import CustomCamera from "../../components/CustomCamera";
+import BackgroundBubble from "../../components/BackgroundBubble";
+import MovingCan from "../../components/MovingCan/MovingCan";
 
 const Section3 = () => {
   const ref = useRef(null!);
@@ -26,7 +26,7 @@ const Section3 = () => {
         <MovingCan scrollYProgress={scrollYProgress} />
         <CustomCamera />
       </View>
-      <BackgroundBubble />
+      <BackgroundBubble customClass="absolute top-0 left-0 w-full h-full" />
     </div>
   );
 };

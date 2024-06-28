@@ -1,7 +1,7 @@
 import CSM from "three-custom-shader-material";
 import { MeshStandardMaterial, MeshStandardMaterialParameters, Texture } from "three";
 
-const DefaultCanMaterial = ({
+const MovingCanMaterial = ({
   opts,
   vertexShader,
   fragmentShader,
@@ -28,4 +28,4 @@ const DefaultCanMaterial = ({
   );
 };
 
-export default DefaultCanMaterial;
+export default MovingCanMaterial;

@@ -1,5 +1,5 @@
 import { MotionValue } from "framer-motion";
-import { colors } from "../../utils/colors";
+import { colors } from "../../contents/content";
 import Swiper from "./Swiper";
 
 const Swipers = ({ scrollY }: { scrollY: MotionValue<number> }) => {

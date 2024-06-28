@@ -1,7 +1,7 @@
 import CSM from "three-custom-shader-material";
 import { MeshStandardMaterial, MeshStandardMaterialParameters, Texture } from "three";
 
-const CustomMaterial = ({
+const TapCanMaterial = ({
   opts,
   vertexShader,
   fragmentShader,
@@ -61,4 +61,4 @@ const CustomMaterial = ({
   );
 };
 
-export default CustomMaterial;
+export default TapCanMaterial;

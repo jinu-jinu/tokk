@@ -1,6 +1,6 @@
 import { animate, motionValue } from "framer-motion";
-import { useCurrentCan, useNextCan } from "../store/CanChangeStore";
-import { colors } from "../utils/colors";
+import { useCurrentCan, useNextCan } from "../store/canChangeStore";
+import { colors } from "../contents/content";
 import { useEffect } from "react";
 
 const useColor = () => {

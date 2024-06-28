@@ -2,20 +2,15 @@ import { Environment, Float } from "@react-three/drei";
 import { Suspense, useMemo } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
-import { AssetTextureType } from "../../types";
 import RollingCanMaterial from "./RollingCanMaterial";
 import { MotionValue, useMotionValueEvent, useSpring, useTransform } from "framer-motion";
 import { motion } from "framer-motion-3d";
+import { useNodes, useTextures } from "../../store/asstesStore";
 
-const RollingCan = ({
-  nodes,
-  textures,
-  scrollY,
-}: {
-  nodes: any;
-  textures: AssetTextureType;
-  scrollY: MotionValue<number>;
-}) => {
+const RollingCan = ({ scrollY }: { scrollY: MotionValue<number> }) => {
+  const nodes = useNodes();
+  const textures = useTextures()!;
+
   const opts = {
     metalness: 0.5,
     roughness: 0.2,

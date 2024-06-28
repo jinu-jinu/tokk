@@ -17,13 +17,9 @@ const Article = ({
         idx % 2 ? "md:justify-end" : "md:justify-start"
       } w-full max-w-[1440px]`}
     >
-      <div className="w-full max-w-[500px] md:max-w-[1050px] border-2 border-[#bbb] rounded-[1rem] flex flex-col md:flex-row">
+      <div className="w-full max-w-[500px] md:max-w-[1050px] border-2 border-[#bbb] rounded-[1rem] flex flex-col md:flex-row overflow-hidden">
         <div className="md:flex-1 flex">
-          <img
-            className="rounded-t-[1rem] w-full md:rounded-tr-none md:rounded-bl-[1rem] object-cover"
-            src={`/images/${src}.jpg`}
-            alt={`${src} image`}
-          />
+          <img className="w-full object-cover" src={`/images/${src}.avif`} alt={`${src} image`} />
         </div>
         <div className="flex flex-col border-t-2 md:border-t-0 md:border-l-2 border-[#bbb] leading-tight md:flex-1">
           <div className="md:flex-1 flex flex-col gap-y-[0.5rem] p-[1rem] lg:p-[2rem]">

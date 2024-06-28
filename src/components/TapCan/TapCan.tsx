@@ -1,16 +1,19 @@
 import { Environment, Float } from "@react-three/drei";
-import CustomMaterial from "./CustomMaterial";
+import TapCanMaterial from "./TapCanMaterial";
 import { useMemo, useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
-import { useCanChangeActions } from "../../store/CanChangeStore";
-import { AssetTextureType } from "../../types";
+import { useCanChangeActions } from "../../store/canChangeStore";
 import { animate, useScroll, useSpring, useTransform } from "framer-motion";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
+import { useNodes, useTextures } from "../../store/asstesStore";
 
-const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) => {
+const TapCan = () => {
+  const nodes = useNodes();
+  const textures = useTextures()!;
+
   const opts = {
     metalness: 0.5,
     roughness: 0.2,
@@ -119,7 +122,7 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
           {/* 버튼 회전 그룹 */}
           <group ref={canRef} position={[0, 0, 1]}>
             <mesh geometry={nodes.Circle.geometry}>
-              <CustomMaterial
+              <TapCanMaterial
                 vertexShader={vertex}
                 fragmentShader={fragment}
                 opts={opts}
@@ -143,4 +146,4 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
   );
 };
 
-export default Can;
+export default TapCan;

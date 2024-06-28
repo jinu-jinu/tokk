@@ -6,6 +6,19 @@ export type AssetTextureType = {
   color2: Texture;
   color3: Texture;
   bump: Texture;
+  s5One: Texture;
+  s5Two: Texture;
+  s5Three: Texture;
+  s5Four: Texture;
+  s5Five: Texture;
+};
+
+export type assetsStoreType = {
+  nodes: any;
+  textures: AssetTextureType | null;
+  actions: {
+    handleAssetsInit: (v: { nodes: any; textures: AssetTextureType }) => void;
+  };
 };
 
 export type CanChangeStoreType = {
@@ -17,24 +30,10 @@ export type CanChangeStoreType = {
   };
 };
 
-export type DeviceStoreType = {
-  isMobile: boolean;
-  actions: {
-    handleIsMobile: (v: boolean) => void;
-  };
-};
-
 export type LoadingStoreType = {
   isAssetDownloaded: boolean;
   actions: {
     handleAssetDownload: (v: boolean) => void;
-  };
-};
-
-export type TransitionStoreType = {
-  isTransitionOut: boolean;
-  actions: {
-    handleTransitionOut: (v: boolean) => void;
   };
 };
 
