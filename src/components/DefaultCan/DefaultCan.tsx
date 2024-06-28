@@ -65,8 +65,9 @@ const DefaultCan = ({
       <directionalLight position={[-1, 3, 4]} intensity={1.2} />
       <pointLight position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
       <pointLight position={[2, -2, 2]} decay={0.5} intensity={3} />
-      <group ref={can1} position={[0, 15, -10]}>
-        <Float speed={3} rotationIntensity={5} floatIntensity={1} floatingRange={[-0.1, 0.1]}>
+
+      <Float speed={3} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+        <group ref={can1} position={[0, 15, -10]} rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}>
           <mesh geometry={nodes.Circle.geometry}>
             <DefaultCanMaterial
               vertexShader={vertex}
@@ -85,11 +86,15 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </Float>
-      </group>
+        </group>
+      </Float>
 
-      <group ref={can2} position={[0, 20, -10]}>
-        <Float speed={2} rotationIntensity={3} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+        <group
+          ref={can2}
+          position={[0, 20, -10]}
+          rotation={[Math.PI * -0.05, Math.PI * -0.1, Math.PI * 0.2]}
+        >
           <mesh geometry={nodes.Circle.geometry}>
             <DefaultCanMaterial
               vertexShader={vertex}
@@ -108,11 +113,15 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </Float>
-      </group>
+        </group>
+      </Float>
 
-      <group ref={can3} position={[0, 30, -10]}>
-        <Float speed={2} rotationIntensity={4} floatIntensity={1.5} floatingRange={[-0.2, 0.2]}>
+      <Float speed={5} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+        <group
+          ref={can3}
+          position={[0, 30, -10]}
+          rotation={[Math.PI * 0.05, Math.PI * 0.1, -Math.PI * 0.2]}
+        >
           <mesh geometry={nodes.Circle.geometry}>
             <DefaultCanMaterial
               vertexShader={vertex}
@@ -131,8 +140,8 @@ const DefaultCan = ({
               envMapIntensity={0.1}
             />
           </mesh>
-        </Float>
-      </group>
+        </group>
+      </Float>
     </group>
   );
 };
