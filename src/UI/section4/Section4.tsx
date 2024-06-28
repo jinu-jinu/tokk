@@ -8,7 +8,7 @@ import { View } from "@react-three/drei";
 const Section4 = () => {
   const ref = useRef(null!);
   const { scrollYProgress } = useScroll({
-    offset: ["50vh", "350vh"],
+    offset: ["50vh", "380vh"],
     target: ref,
   });
 
