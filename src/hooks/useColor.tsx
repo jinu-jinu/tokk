@@ -1,5 +1,5 @@
 import { animate, motionValue } from "framer-motion";
-import { useCurrentCan, useNextCan } from "../store/canChangeStore";
+import { useCurrentCan, useNextCan } from "../store/CanChangeStore";
 import { colors } from "../contents/content";
 import { useEffect } from "react";
 

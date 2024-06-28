@@ -8,7 +8,7 @@ import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { useNodes, useTextures } from "../../store/asstesStore";
-import { useCanChangeActions } from "../../store/canChangeStore";
+import { useCanChangeActions } from "../../store/CanChangeStore";
 
 const TapCan = () => {
   const nodes = useNodes();
