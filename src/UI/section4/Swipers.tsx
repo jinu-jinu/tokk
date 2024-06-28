@@ -2,7 +2,7 @@ import Swiper from "./Swiper";
 
 const Swipers = () => {
   return (
-    <div>
+    <div className="relative w-full ">
       <Swiper />
     </div>
   );

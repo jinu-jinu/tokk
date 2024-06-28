@@ -22,7 +22,7 @@ const Section4 = () => {
   return (
     <div
       ref={ref}
-      className="relative w-full h-auto flex flex-col gap-y-[3rem] md:gap-y-[6rem] text-[#bbb] overflow-x-clip"
+      className="relative w-full h-[400dvh] flex flex-col gap-y-[3rem] md:gap-y-[6rem] text-[#bbb] overflow-x-clip"
     >
       <Swipers />
 
