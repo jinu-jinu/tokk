@@ -16,9 +16,11 @@ const parentVar = {
 const childVar = {
   initial: {
     opacity: 0,
+    scale: 0,
   },
   animate: {
     opacity: 1,
+    scale: 1,
     transition: {
       duration: 0.5,
       ease: "easeInOut",
@@ -67,7 +69,7 @@ const BubbleText = ({ title }: { title: string[] }) => {
       className="relative font-LOTTERIACHAB text-[4.5vmax] sm:text-[5vmax]"
     >
       {title.map((t, i) => (
-        <motion.span variants={childVar} key={`${t}-${i}`}>
+        <motion.span className="inline-block" variants={childVar} key={`${t}-${i}`}>
           {t}
         </motion.span>
       ))}

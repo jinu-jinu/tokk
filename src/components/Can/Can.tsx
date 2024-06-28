@@ -113,7 +113,6 @@ const Can = ({ nodes, textures }: { nodes: any; textures: AssetTextureType }) =>
               handleCurrentCan(next.current);
             },
           });
-          canRef.current.matrixWorldNeedsUpdate = true;
         }}
       >
         <group>

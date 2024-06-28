@@ -41,10 +41,6 @@ const DefaultCan = ({
   useFrame(({ viewport }) => {
     if (!can1.current && !can2.current && !can3.current) return;
 
-    can1.current.matrixWorldNeedsUpdate = true;
-    can2.current.matrixWorldNeedsUpdate = true;
-    can3.current.matrixWorldNeedsUpdate = true;
-
     if (viewport.aspect < 0.6) {
       can2.current.visible = false;
       can3.current.visible = false;
