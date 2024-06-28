@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import * as THREE from "three";
 import vertex from "./glsl/vertex.glsl?raw";
 import fragment from "./glsl/fragment.glsl?raw";
@@ -59,7 +59,7 @@ const Flowfield = () => {
   });
 
   return (
-    <>
+    <Suspense fallback={null}>
       {createPortal(
         <mesh>
           <bufferGeometry>
@@ -103,7 +103,7 @@ const Flowfield = () => {
           uniforms={uniforms.current}
         />
       </points>
-    </>
+    </Suspense>
   );
 };
 

@@ -40,6 +40,8 @@ const Experience = ({
         fragmentShader={fragmentShader}
         uniforms={uniforms.current}
         transparent
+        depthTest={false}
+        depthWrite={false}
       />
     </mesh>
   );

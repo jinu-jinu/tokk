@@ -32,6 +32,7 @@ const App = () => {
             height: "100dvh",
             overflow: "hidden",
           }}
+          gl={{ antialias: true }}
           eventSource={document.getElementById("root")!}
         >
           <View.Port />

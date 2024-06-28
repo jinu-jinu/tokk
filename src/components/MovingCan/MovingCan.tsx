@@ -1,5 +1,5 @@
 import { Environment, Float } from "@react-three/drei";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
 import { MotionValue, useSpring, useTransform } from "framer-motion";
@@ -57,92 +57,94 @@ const MovingCan = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }
   });
 
   return (
-    <group dispose={null}>
-      <Environment preset="city" background={false} environmentIntensity={1.2} />
-      <directionalLight position={[-1, 3, 4]} intensity={1.2} />
-      <pointLight position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
-      <pointLight position={[2, -2, 2]} decay={0.5} intensity={3} />
+    <Suspense fallback={null}>
+      <group dispose={null}>
+        <Environment preset="city" background={false} environmentIntensity={1.2} />
+        <directionalLight position={[-1, 3, 4]} intensity={1.2} />
+        <pointLight position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
+        <pointLight position={[2, -2, 2]} decay={0.5} intensity={3} />
 
-      <Float speed={3} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <motion.group
-          position={[0, y1Spring, -10]}
-          rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}
-        >
-          <mesh geometry={nodes.Circle.geometry}>
-            <MovingCanMaterial
-              vertexShader={vertex}
-              fragmentShader={fragment}
-              opts={opts}
-              uniforms={{ uTex: { value: textures.color1 } }}
-            />
-          </mesh>
-          <mesh geometry={nodes.Circle_1.geometry}>
-            <meshStandardMaterial
-              color={"#ffffff"}
-              metalness={1}
-              roughness={0.1}
-              bumpMap={textures.bump}
-              bumpScale={0.2}
-              envMapIntensity={0.1}
-            />
-          </mesh>
-        </motion.group>
-      </Float>
+        <Float speed={3} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+          <motion.group
+            position={[0, y1Spring, -10]}
+            rotation={[Math.PI * -0.05, 0, Math.PI * -0.05]}
+          >
+            <mesh geometry={nodes.Circle.geometry}>
+              <MovingCanMaterial
+                vertexShader={vertex}
+                fragmentShader={fragment}
+                opts={opts}
+                uniforms={{ uTex: { value: textures.color1 } }}
+              />
+            </mesh>
+            <mesh geometry={nodes.Circle_1.geometry}>
+              <meshStandardMaterial
+                color={"#ffffff"}
+                metalness={1}
+                roughness={0.1}
+                bumpMap={textures.bump}
+                bumpScale={0.2}
+                envMapIntensity={0.1}
+              />
+            </mesh>
+          </motion.group>
+        </Float>
 
-      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <motion.group
-          ref={can2}
-          position={[0, y2Spring, -10]}
-          rotation={[Math.PI * -0.05, Math.PI * -0.1, Math.PI * 0.2]}
-        >
-          <mesh geometry={nodes.Circle.geometry}>
-            <MovingCanMaterial
-              vertexShader={vertex}
-              fragmentShader={fragment}
-              opts={opts}
-              uniforms={{ uTex: { value: textures.color2 } }}
-            />
-          </mesh>
-          <mesh geometry={nodes.Circle_1.geometry}>
-            <meshStandardMaterial
-              color={"#ffffff"}
-              metalness={1}
-              roughness={0.1}
-              bumpMap={textures.bump}
-              bumpScale={0.2}
-              envMapIntensity={0.1}
-            />
-          </mesh>
-        </motion.group>
-      </Float>
+        <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+          <motion.group
+            ref={can2}
+            position={[0, y2Spring, -10]}
+            rotation={[Math.PI * -0.05, Math.PI * -0.1, Math.PI * 0.2]}
+          >
+            <mesh geometry={nodes.Circle.geometry}>
+              <MovingCanMaterial
+                vertexShader={vertex}
+                fragmentShader={fragment}
+                opts={opts}
+                uniforms={{ uTex: { value: textures.color2 } }}
+              />
+            </mesh>
+            <mesh geometry={nodes.Circle_1.geometry}>
+              <meshStandardMaterial
+                color={"#ffffff"}
+                metalness={1}
+                roughness={0.1}
+                bumpMap={textures.bump}
+                bumpScale={0.2}
+                envMapIntensity={0.1}
+              />
+            </mesh>
+          </motion.group>
+        </Float>
 
-      <Float speed={5} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
-        <motion.group
-          ref={can3}
-          position={[0, y3Spring, -10]}
-          rotation={[Math.PI * 0.05, Math.PI * 0.1, -Math.PI * 0.2]}
-        >
-          <mesh geometry={nodes.Circle.geometry}>
-            <MovingCanMaterial
-              vertexShader={vertex}
-              fragmentShader={fragment}
-              opts={opts}
-              uniforms={{ uTex: { value: textures.color3 } }}
-            />
-          </mesh>
-          <mesh geometry={nodes.Circle_1.geometry}>
-            <meshStandardMaterial
-              color={"#ffffff"}
-              metalness={1}
-              roughness={0.1}
-              bumpMap={textures.bump}
-              bumpScale={0.2}
-              envMapIntensity={0.1}
-            />
-          </mesh>
-        </motion.group>
-      </Float>
-    </group>
+        <Float speed={5} rotationIntensity={0.2} floatIntensity={0.5} floatingRange={[-0.1, 0.1]}>
+          <motion.group
+            ref={can3}
+            position={[0, y3Spring, -10]}
+            rotation={[Math.PI * 0.05, Math.PI * 0.1, -Math.PI * 0.2]}
+          >
+            <mesh geometry={nodes.Circle.geometry}>
+              <MovingCanMaterial
+                vertexShader={vertex}
+                fragmentShader={fragment}
+                opts={opts}
+                uniforms={{ uTex: { value: textures.color3 } }}
+              />
+            </mesh>
+            <mesh geometry={nodes.Circle_1.geometry}>
+              <meshStandardMaterial
+                color={"#ffffff"}
+                metalness={1}
+                roughness={0.1}
+                bumpMap={textures.bump}
+                bumpScale={0.2}
+                envMapIntensity={0.1}
+              />
+            </mesh>
+          </motion.group>
+        </Float>
+      </group>
+    </Suspense>
   );
 };
 
