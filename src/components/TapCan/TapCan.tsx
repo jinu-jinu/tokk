@@ -13,6 +13,7 @@ import { useCanChangeActions } from "../../store/canChangeStore";
 const TapCan = () => {
   const nodes = useNodes();
   const textures = useTextures()!;
+  // sdfadf
 
   const opts = {
     metalness: 0.5,
