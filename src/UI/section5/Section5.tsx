@@ -3,6 +3,7 @@ import { useRef } from "react";
 import BackgroundBubble from "../../components/BackgroundBubble";
 import Titles from "./Titles";
 import Figures from "./Figures";
+import Wave from "../../components/Wave";
 
 const Section5 = () => {
   const ref = useRef<HTMLDivElement>(null!);
@@ -18,6 +19,7 @@ const Section5 = () => {
     >
       <Titles />
       <Figures scrollY={scrollYProgress} />
+      <Wave />
 
       <BackgroundBubble customClass="absolute top-0 left-0 w-full h-full" />
     </section>

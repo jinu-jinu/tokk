@@ -9,6 +9,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import AssetsInit from "./components/AssetsInit";
 import Section4 from "./UI/section4/Section4";
 import Section5 from "./UI/section5/Section5";
+import Section6 from "./UI/section6/Section6";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Section3 />
         <Section4 />
         <Section5 />
-        <div className="relative w-full h-[100dvh] bg-white "></div>
+        <Section6 />
 
         <Canvas
           style={{
