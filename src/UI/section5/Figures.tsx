@@ -28,7 +28,7 @@ const Figures = ({ scrollY }: { scrollY: MotionValue<number> }) => {
   ];
 
   return (
-    <div className="flex flex-col gap-y-[10rem] lg:gap-y-[15rem] px-[1rem] lg:px-[3rem] font-Noto pb-[93px] md:pb-[120px] w-full max-w-[1440px]">
+    <div className="flex flex-col gap-y-[10rem] lg:gap-y-[15rem] px-[1rem] lg:px-[3rem] font-Noto w-full max-w-[1440px]">
       {figures.map(({ textureKey, caption, scrollOffset }, i) => (
         <figure
           key={`section5-figure-${i}`}
