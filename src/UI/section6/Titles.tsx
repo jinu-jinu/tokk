@@ -29,7 +29,7 @@ const Titles = () => {
             whileInView={whileInView}
             viewport={{ once: true }}
             transition={{
-              delay: 0.4,
+              delay: 0.3,
               type: "spring",
             }}
             className={`${commonTitle} ${enTitle}`}
@@ -43,7 +43,7 @@ const Titles = () => {
             whileInView={whileInView}
             viewport={{ once: true }}
             transition={{
-              delay: 0.6,
+              delay: 0.5,
               type: "spring",
             }}
             className={`${commonTitle} ${krTitle}`}
@@ -55,7 +55,7 @@ const Titles = () => {
             whileInView={whileInView}
             viewport={{ once: true }}
             transition={{
-              delay: 0.8,
+              delay: 0.6,
               type: "spring",
             }}
             className={`${commonTitle} ${enTitle}`}
@@ -69,7 +69,7 @@ const Titles = () => {
             whileInView={whileInView}
             viewport={{ once: true }}
             transition={{
-              delay: 1,
+              delay: 0.8,
               type: "spring",
             }}
             className={`${commonTitle} ${krTitle}`}
@@ -81,7 +81,7 @@ const Titles = () => {
             whileInView={whileInView}
             viewport={{ once: true }}
             transition={{
-              delay: 1.2,
+              delay: 0.9,
               type: "spring",
             }}
             className={`${commonTitle} ${enTitle}`}

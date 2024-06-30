@@ -16,20 +16,7 @@ const Article = ({
   const isOdd = idx % 2;
 
   return (
-    <motion.article
-      initial={{
-        x: isOdd ? "200px" : "-200px",
-      }}
-      whileInView={{
-        x: "0px",
-      }}
-      viewport={{
-        once: true,
-      }}
-      transition={{
-        delay: 0.2,
-        duration: 0.6,
-      }}
+    <article
       className={`font-Noto flex justify-center ${
         isOdd ? "md:justify-end" : "md:justify-start"
       } w-full max-w-[1440px]`}
@@ -59,7 +46,7 @@ const Article = ({
           </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 };
 
