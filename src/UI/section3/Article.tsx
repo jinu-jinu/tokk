@@ -18,11 +18,11 @@ const Article = ({
   return (
     <motion.article
       initial={{
-        opacity: 0,
+        filter: "blur(8px)",
         x: isOdd ? "200px" : "-200px",
       }}
       whileInView={{
-        opacity: 1,
+        filter: "blur(0px)",
         x: "0px",
       }}
       viewport={{

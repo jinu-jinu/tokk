@@ -5,18 +5,17 @@ const Titles = () => {
   const commonTitle = "flex justify-center items-center";
   const krTitle = "text-[8vmax] h-[8vmax]";
   const enTitle = "text-[10vmax] h-[10vmax] lg:text-[8.5vmax] lg:h-[8.5vmax]";
+  const initial = { scale: 0 };
+  const whileInView = { scale: 1 };
 
   return (
     <div className="px-[2rem] absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center font-LOTTERIACHAB">
       <div>
         <div className={`${commonTitles}`}>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 0.2,
               type: "spring",
@@ -26,12 +25,9 @@ const Titles = () => {
             상큼하게
           </motion.p>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 0.4,
               type: "spring",
@@ -43,12 +39,9 @@ const Titles = () => {
         </div>
         <div className={`${commonTitles} lg:flex-row-reverse`}>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 0.6,
               type: "spring",
@@ -58,12 +51,9 @@ const Titles = () => {
             부담없이
           </motion.p>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 0.8,
               type: "spring",
@@ -75,12 +65,9 @@ const Titles = () => {
         </div>
         <div className={`${commonTitles}`}>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 1,
               type: "spring",
@@ -90,12 +77,9 @@ const Titles = () => {
             짜릿하게
           </motion.p>
           <motion.p
-            initial={{
-              scale: 0,
-            }}
-            whileInView={{
-              scale: 1,
-            }}
+            initial={initial}
+            whileInView={whileInView}
+            viewport={{ once: true }}
             transition={{
               delay: 1.2,
               type: "spring",
