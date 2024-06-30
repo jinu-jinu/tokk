@@ -1,10 +1,7 @@
-import Wave from "../../components/Wave";
-
 const Footer = () => {
   return (
     <footer className="absolute bottom-0 right-0 w-full flex justify-between items-center p-[1rem] lg:px-[2rem]">
       {/* icons */}
-      <Wave />
       <div className="font-Noto font-bold">© TOKK 2024</div>
       <div className="flex gap-x-[6px]">
         <svg width="48px" height="48px" viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg">

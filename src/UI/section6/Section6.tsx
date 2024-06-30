@@ -4,6 +4,7 @@ import BackgroundBubble from "../../components/BackgroundBubble";
 import Titles from "./Titles";
 import { PerspectiveCamera } from "@react-three/drei";
 import Footer from "./Footer";
+import Wave from "../../components/Wave";
 
 const Section6 = () => {
   const ref = useRef<HTMLDivElement>(null!);
@@ -19,6 +20,7 @@ const Section6 = () => {
     >
       <Titles />
       <Footer />
+      <Wave />
 
       <BackgroundBubble customClass="w-full h-full">
         <PerspectiveCamera makeDefault fov={10} position={[0, 0, 7]} />
