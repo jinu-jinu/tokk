@@ -7,21 +7,15 @@ const Loading = () => {
   const { loaded } = useProgress();
   const total = 15;
   const handleAssetDownload = useLoadingActions("handleAssetDownload");
-
   const opacity = motionValue(1);
 
   useEffect(() => {
-    console.log(loaded, total);
     if (loaded === total) {
       console.log("download complete");
       handleAssetDownload(true);
-
       animate(opacity, 0, {
         duration: 1,
         ease: "easeInOut",
-        onUpdate: (v) => {
-          console.log(v);
-        },
       });
     }
   }, [loaded]);
@@ -31,9 +25,9 @@ const Loading = () => {
       style={{
         opacity,
       }}
-      className="w-full h-[100dvh] bg-black fixed top-0 left-0 z-[100] pointer-events-none"
+      className="w-full h-[100dvh] bg-black fixed top-0 left-0 z-[100] pointer-events-none flex justify-center items-center font-black text-[7vmax] font-LOTTERIACHAB"
     >
-      Loading
+      <p className="relative overflow-hidden text-[#fff]">TOKK</p>
     </motion.div>
   );
 };

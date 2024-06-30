@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
@@ -15,17 +16,23 @@ const Header = () => {
         <p className="font-LOTTERIACHAB text-[1.5rem] lg:text-[2rem]">TOKK</p>
 
         <div className="flex gap-x-[8px] font-Prompt items-center">
-          <button
+          <motion.button
+            whileHover={{
+              backgroundColor: "#444",
+              color: "#bbb",
+            }}
             style={{
               backgroundColor: "#bbb",
               color: "#000",
             }}
             className={`text-[14px] lg:text-[16px] font-bold px-[12px] py-[4px] rounded-[16px]`}
           >
-            PORTFOLIO
-          </button>
+            <a href="https://jinu-portfolio.vercel.app" target="_blank">
+              PORTFOLIO
+            </a>
+          </motion.button>
           <Nav />
-          <button className=" w-[24px] h-[24px] lg:w-[32px] lg:h-[32px] flex justify-center items-center">
+          <button className="w-[24px] h-[24px] lg:w-[32px] lg:h-[32px] flex justify-center items-center">
             <svg width="100%" height="100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 style={{

@@ -1,19 +1,20 @@
 import { Environment, Float } from "@react-three/drei";
 import TapCanMaterial from "./TapCanMaterial";
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import vertex from "./vertex.glsl?raw";
 import fragment from "./fragment.glsl?raw";
-import { animate, useScroll, useSpring, useTransform } from "framer-motion";
+import { animate, motionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import { useNodes, useTextures } from "../../store/asstesStore";
 import { useCanChangeActions } from "../../store/CanChangeStore";
+import { useIsAssetDownloaded } from "../../store/loadingStore";
 
 const TapCan = () => {
   const nodes = useNodes();
   const textures = useTextures()!;
-  // sdfadf
+  const isAssetDownloaded = useIsAssetDownloaded();
 
   const opts = {
     metalness: 0.5,
@@ -42,16 +43,27 @@ const TapCan = () => {
     []
   );
 
-  useFrame(({ clock }) => {
-    const et = clock.elapsedTime;
-    uniforms.uTime.value = et;
-  });
-
   const { scrollYProgress } = useScroll({
     offset: ["0vh", "70vh"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [-2, -5]);
   const ySpring = useSpring(y, { bounce: 1, damping: 30, stiffness: 150 });
+
+  const landingY = motionValue(-4);
+
+  useEffect(() => {
+    if (isAssetDownloaded) {
+      animate(landingY, 0, {
+        delay: 1,
+        duration: 1,
+      });
+    }
+  }, [isAssetDownloaded]);
+
+  useFrame(({ clock }) => {
+    const et = clock.elapsedTime;
+    uniforms.uTime.value = et;
+  });
 
   return (
     <Suspense fallback={null}>
@@ -111,7 +123,7 @@ const TapCan = () => {
             });
           }}
         >
-          <group>
+          <motion.group position={[0, landingY, 0]}>
             <Environment preset="city" background={false} environmentIntensity={1.2} />
             <directionalLight position={[-1, 3, 4]} intensity={1.2} />
             <pointLight position={[-1, 0.1, 3]} decay={0.5} intensity={1} />
@@ -138,7 +150,7 @@ const TapCan = () => {
                 />
               </mesh>
             </group>
-          </group>
+          </motion.group>
         </motion.group>
       </Float>
     </Suspense>

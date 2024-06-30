@@ -1,19 +1,23 @@
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 const NavItem = ({ children, itemName }: { children: ReactNode; itemName: string }) => {
   return (
-    <button
-      className={`text-[12px] font-medium lg:text-[14px] flex items-center px-[12px] py-[6px] gap-x-[6px]`}
+    <motion.button
+      whileHover={{
+        backgroundColor: "#444",
+      }}
+      className={`text-[12px] rounded-[16px] font-medium lg:text-[14px] flex items-center px-[12px] py-[6px] gap-x-[6px]`}
     >
       <span>{children}</span>
       <span>{itemName}</span>
-    </button>
+    </motion.button>
   );
 };
 
 const Nav = () => {
   return (
-    <nav className={`hidden lg:flex`}>
+    <nav className={`hidden lg:flex lg:gap-x-[8px]`}>
       <NavItem itemName="CONTACT">
         <svg
           width="24px"
