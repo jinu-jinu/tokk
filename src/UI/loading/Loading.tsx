@@ -31,7 +31,7 @@ const Loading = () => {
       style={{
         opacity,
       }}
-      className="w-full h-[100dvh] bg-black fixed top-0 left-0 z-[100]"
+      className="w-full h-[100dvh] bg-black fixed top-0 left-0 z-[100] pointer-events-none"
     >
       Loading
     </motion.div>
