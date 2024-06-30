@@ -1,4 +1,4 @@
-import { MotionValue } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 import { View } from "@react-three/drei";
 import Experience from "./Experience";
 
@@ -45,7 +45,15 @@ const Figures = ({ scrollY }: { scrollY: MotionValue<number> }) => {
           >
             <Experience scrollY={scrollY} textureKey={textureKey} scrollOffset={scrollOffset} />
           </View>
-          <figcaption className="font-bold text-[14px] lg:text-[16px]">{caption}</figcaption>
+          <motion.figcaption
+            whileInView={{ opacity: 1 }}
+            transition={{
+              delay: 0.3,
+            }}
+            className="opacity-0 font-bold text-[14px] lg:text-[16px]"
+          >
+            {caption}
+          </motion.figcaption>
         </figure>
       ))}
     </div>
