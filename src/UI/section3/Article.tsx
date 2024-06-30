@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Article = ({
   deck,
   title,
@@ -11,11 +13,27 @@ const Article = ({
   src: string;
   idx: number;
 }) => {
+  const isOdd = idx % 2;
+
   return (
-    <article
+    <motion.article
+      whileInView={{
+        opacity: 1,
+        x: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        delay: 0.3,
+        duration: 0.6,
+      }}
+      style={{
+        x: isOdd ? "200px" : "-200px",
+      }}
       className={`font-Noto flex justify-center ${
-        idx % 2 ? "md:justify-end" : "md:justify-start"
-      } w-full max-w-[1440px]`}
+        isOdd ? "md:justify-end" : "md:justify-start"
+      } w-full max-w-[1440px] opacity-0`}
     >
       <div className="w-full max-w-[500px] md:max-w-[1050px] border-2 border-[#bbb] rounded-[1rem] flex flex-col md:flex-row overflow-hidden">
         <div className="md:flex-1 flex">
@@ -36,7 +54,7 @@ const Article = ({
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
