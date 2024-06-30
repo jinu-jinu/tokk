@@ -18,22 +18,24 @@ const Article = ({
   return (
     <motion.article
       whileInView={{
-        opacity: 1,
+        filter: "blur(0px)",
         x: 0,
       }}
       viewport={{
         once: true,
       }}
       transition={{
-        delay: 0.3,
+        delay: 0.15,
         duration: 0.6,
+        ease: "easeIn",
       }}
       style={{
         x: isOdd ? "200px" : "-200px",
+        filter: "blur(8px)",
       }}
       className={`font-Noto flex justify-center ${
         isOdd ? "md:justify-end" : "md:justify-start"
-      } w-full max-w-[1440px] opacity-0`}
+      } w-full max-w-[1440px]`}
     >
       <div className="w-full max-w-[500px] md:max-w-[1050px] border-2 border-[#bbb] rounded-[1rem] flex flex-col md:flex-row overflow-hidden">
         <div className="md:flex-1 flex">
