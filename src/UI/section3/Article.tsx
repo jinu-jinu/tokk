@@ -17,22 +17,22 @@ const Article = ({
 
   return (
     <motion.article
-      whileInView={{
-        filter: "blur(0px)",
-        x: 0,
-      }}
-      viewport={{
-        once: true,
-      }}
-      transition={{
-        delay: 0.15,
-        duration: 0.6,
-        ease: "easeIn",
-      }}
-      style={{
-        x: isOdd ? "200px" : "-200px",
-        filter: "blur(8px)",
-      }}
+      // whileInView={{
+      //   filter: "blur(0px)",
+      //   x: 0,
+      // }}
+      // viewport={{
+      //   once: true,
+      // }}
+      // transition={{
+      //   delay: 0.15,
+      //   duration: 0.6,
+      //   ease: "easeIn",
+      // }}
+      // style={{
+      //   x: isOdd ? "200px" : "-200px",
+      //   filter: "blur(8px)",
+      // }}
       className={`font-Noto flex justify-center ${
         isOdd ? "md:justify-end" : "md:justify-start"
       } w-full max-w-[1440px]`}
