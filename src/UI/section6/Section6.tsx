@@ -23,7 +23,7 @@ const Section6 = () => {
       <Wave />
 
       <BackgroundBubble customClass="w-full h-full">
-        <PerspectiveCamera makeDefault fov={10} position={[0, 0, 7]} />
+        <PerspectiveCamera makeDefault fov={10} position={[0, 0, 7]} near={0.1} far={50} />
       </BackgroundBubble>
     </section>
   );

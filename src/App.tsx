@@ -10,11 +10,14 @@ import AssetsInit from "./components/AssetsInit";
 import Section4 from "./UI/section4/Section4";
 import Section5 from "./UI/section5/Section5";
 import Section6 from "./UI/section6/Section6";
+import Loading from "./UI/loading/Loading";
 
 const App = () => {
   return (
     <SmoothScroll>
       <div className="relative w-full min-h-[100dvh]">
+        <Loading />
+
         <Background />
         <Header />
         <Section1 />

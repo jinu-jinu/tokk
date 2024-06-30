@@ -26,7 +26,7 @@ const CustomCamera = () => {
   const v = viewport.height / viewport.width;
   const fov = lerp(55, 40, remap(v) * remap(v) * (remap(v) * 0.95 - remap(v) * 0.01));
 
-  return <PerspectiveCamera makeDefault fov={fov} position={[0, 0, 7]} />;
+  return <PerspectiveCamera makeDefault fov={fov} position={[0, 0, 7]} near={0.1} far={50} />;
 };
 
 export default CustomCamera;
