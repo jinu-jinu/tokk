@@ -1,4 +1,4 @@
-import { MotionValue, motion, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Article = ({
   deck,
@@ -6,28 +6,25 @@ const Article = ({
   body,
   src,
   idx,
-  scrollOffset,
-  scrollY,
 }: {
   deck: string;
   title: string;
   body: string;
   src: string;
   idx: number;
-  scrollOffset: any;
-  scrollY: MotionValue<number>;
 }) => {
   const isOdd = idx % 2;
-  const xStart = isOdd ? "200px" : "-200px";
-  const opacity = useTransform(scrollY, scrollOffset, [0, 1]);
-  const x = useTransform(scrollY, scrollOffset, [xStart, "0px"]);
 
   return (
     <motion.article
-      style={{
-        x,
-        opacity,
+      whileInView={{
+        filter: "blur(0px)",
       }}
+      transition={{
+        delay: 0.2,
+        duration: 0.6,
+      }}
+      style={{ filter: "blur(8px)" }}
       className={`font-Noto flex justify-center ${
         isOdd ? "md:justify-end" : "md:justify-start"
       } w-full max-w-[1440px]`}
@@ -45,9 +42,15 @@ const Article = ({
             </div>
           </div>
           <div className="w-full border-t-2 p-[1rem] border-[#bbb]">
-            <button className="w-full h-[66px] bg-[#777] rounded-[1rem] text-[#000] font-black text-[18px]  box-shadow">
+            <motion.button
+              whileHover={{
+                backgroundColor: "#444",
+                color: "#bbb",
+              }}
+              className="cursor-pointer w-full h-[66px] bg-[#777] rounded-[1rem] text-[#000] font-black text-[18px]  box-shadow"
+            >
               MORE INFO
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

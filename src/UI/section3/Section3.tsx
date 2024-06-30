@@ -20,13 +20,13 @@ const Section3 = () => {
       className="relative w-full h-auto flex flex-col gap-y-[3rem] md:gap-y-[6rem] text-[#bbb] mix-blend-screen overflow-x-clip"
     >
       <Title />
-      <Articles scrollY={scrollYProgress} />
+      <Articles />
 
-      <View className="absolute top-0 left-0 w-full h-full">
+      <View className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <MovingCan scrollYProgress={scrollYProgress} />
         <CustomCamera />
       </View>
-      <BackgroundBubble customClass="absolute top-0 left-0 w-full h-full" />
+      <BackgroundBubble customClass="absolute top-0 left-0 w-full h-full pointer-events-none" />
     </div>
   );
 };
