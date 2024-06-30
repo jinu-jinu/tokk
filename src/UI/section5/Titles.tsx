@@ -8,8 +8,8 @@ const Titles = () => {
     <header className="px-[2rem] flex flex-col items-center gap-y-[1rem] pt-[93px] md:pt-[120px]">
       <BubbleText title={title} />
       <motion.p
-        initial={{ y: "50px", opacity: 0 }}
-        whileInView={{ y: "0px", opacity: 1 }}
+        initial={{ y: "50px" }}
+        whileInView={{ y: "0px" }}
         viewport={{ once: true }}
         transition={{
           delay: 0.2,
