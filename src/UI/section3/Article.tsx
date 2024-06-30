@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { MotionValue, motion, useTransform } from "framer-motion";
 
 const Article = ({
   deck,
@@ -6,33 +6,28 @@ const Article = ({
   body,
   src,
   idx,
+  scrollOffset,
+  scrollY,
 }: {
   deck: string;
   title: string;
   body: string;
   src: string;
   idx: number;
+  scrollOffset: any;
+  scrollY: MotionValue<number>;
 }) => {
   const isOdd = idx % 2;
+  const xStart = isOdd ? "200px" : "-200px";
+  const opacity = useTransform(scrollY, scrollOffset, [0, 1]);
+  const x = useTransform(scrollY, scrollOffset, [xStart, "0px"]);
 
   return (
     <motion.article
-      // whileInView={{
-      //   filter: "blur(0px)",
-      //   x: 0,
-      // }}
-      // viewport={{
-      //   once: true,
-      // }}
-      // transition={{
-      //   delay: 0.15,
-      //   duration: 0.6,
-      //   ease: "easeIn",
-      // }}
-      // style={{
-      //   x: isOdd ? "200px" : "-200px",
-      //   filter: "blur(8px)",
-      // }}
+      style={{
+        x,
+        opacity,
+      }}
       className={`font-Noto flex justify-center ${
         isOdd ? "md:justify-end" : "md:justify-start"
       } w-full max-w-[1440px]`}
