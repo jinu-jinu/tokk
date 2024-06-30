@@ -46,17 +46,12 @@ const Figures = ({ scrollY }: { scrollY: MotionValue<number> }) => {
             <Experience scrollY={scrollY} textureKey={textureKey} scrollOffset={scrollOffset} />
           </View>
           <motion.figcaption
-            // whileInView={{ scale: 1 }}
-            // viewport={{
-            //   once: true,
-            // }}
-            // transition={{
-            //   delay: 0.2,
-            //   duration: 0.3,
-            // }}
-            // style={{
-            //   scale: 0,
-            // }}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.3,
+            }}
             className="font-bold text-[14px] lg:text-[16px]"
           >
             {caption}

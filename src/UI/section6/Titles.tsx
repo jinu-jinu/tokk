@@ -17,19 +17,93 @@ const Titles = () => {
             whileInView={{
               scale: 1,
             }}
+            transition={{
+              delay: 0.2,
+              type: "spring",
+            }}
             className={`${commonTitle} ${krTitle}`}
           >
             상큼하게
           </motion.p>
-          <motion.p className={`${commonTitle} ${enTitle}`}>TOKK</motion.p>
+          <motion.p
+            initial={{
+              scale: 0,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            transition={{
+              delay: 0.4,
+              type: "spring",
+            }}
+            className={`${commonTitle} ${enTitle}`}
+          >
+            TOKK
+          </motion.p>
         </div>
         <div className={`${commonTitles} lg:flex-row-reverse`}>
-          <p className={`${commonTitle} ${krTitle}`}>부담없이</p>
-          <p className={`${commonTitle} ${enTitle}`}>TOKK</p>
+          <motion.p
+            initial={{
+              scale: 0,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            transition={{
+              delay: 0.6,
+              type: "spring",
+            }}
+            className={`${commonTitle} ${krTitle}`}
+          >
+            부담없이
+          </motion.p>
+          <motion.p
+            initial={{
+              scale: 0,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            transition={{
+              delay: 0.8,
+              type: "spring",
+            }}
+            className={`${commonTitle} ${enTitle}`}
+          >
+            TOKK
+          </motion.p>
         </div>
         <div className={`${commonTitles}`}>
-          <p className={`${commonTitle} ${krTitle}`}>짜릿하게</p>
-          <p className={`${commonTitle} ${enTitle}`}>TOKK</p>
+          <motion.p
+            initial={{
+              scale: 0,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            transition={{
+              delay: 1,
+              type: "spring",
+            }}
+            className={`${commonTitle} ${krTitle}`}
+          >
+            짜릿하게
+          </motion.p>
+          <motion.p
+            initial={{
+              scale: 0,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            transition={{
+              delay: 1.2,
+              type: "spring",
+            }}
+            className={`${commonTitle} ${enTitle}`}
+          >
+            TOKK
+          </motion.p>
         </div>
       </div>
     </div>
