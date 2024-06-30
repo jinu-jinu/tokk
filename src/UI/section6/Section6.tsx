@@ -1,7 +1,7 @@
 // import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import BackgroundBubble from "../../components/BackgroundBubble";
-import Titles from "./Titles";
+// import Titles from "./Titles";
 import { PerspectiveCamera } from "@react-three/drei";
 import Footer from "./Footer";
 import Wave from "../../components/Wave";
@@ -18,7 +18,7 @@ const Section6 = () => {
       ref={ref}
       className="relative w-full h-[100dvh] text-[#bbb] bg-[rgba(255,255,255,.2)] mix-blend-screen"
     >
-      <Titles />
+      {/* <Titles /> */}
       <Footer />
       <Wave />
 
