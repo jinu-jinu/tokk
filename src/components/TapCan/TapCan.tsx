@@ -74,7 +74,6 @@ const TapCan = () => {
           onPointerOver={(e) => {
             e.stopPropagation();
             document.body.style.cursor = "pointer";
-            console.log("asdf");
 
             animate(0, 1, {
               duration: 0.3,

@@ -11,7 +11,6 @@ const Loading = () => {
 
   useEffect(() => {
     if (loaded === total) {
-      console.log("download complete");
       handleAssetDownload(true);
       animate(opacity, 0, {
         duration: 1,
